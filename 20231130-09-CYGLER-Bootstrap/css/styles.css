@@ -1,0 +1,9 @@
+.card:hover {
+  cursor: pointer;
+  transform: scale(1.02);
+  transition: transform 0.3s;
+}
+
+.no-link {
+  text-decoration: none;
+}

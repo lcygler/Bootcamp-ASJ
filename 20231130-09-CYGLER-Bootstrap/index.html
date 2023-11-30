@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Noticias Argentinas</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <!-- Navbar -->
+      <nav class="navbar navbar-expand-lg navbar-light">
+        <div class="container">
+          <a class="navbar-brand" href="#"><strong>Noticias Argentinas</strong></a>
+          <form class="d-flex" role="search">
+            <input
+              class="form-control me-2"
+              type="search"
+              placeholder="Buscar..."
+              aria-label="Search"
+            />
+            <button class="btn btn-outline-primary" type="submit">Buscar</button>
+          </form>
+        </div>
+      </nav>
+
+      <!-- Categorías -->
+      <div class="container mt-3">
+        <div class="row d-flex justify-content-center">
+          <div class="col">
+            <div class="btn-group d-flex justify-content-center" role="group">
+              <a href="elmundo.html" class="btn btn-primary">El Mundo</a>
+              <a href="economia.html" class="btn btn-outline-primary">Economía</a>
+              <a href="politica.html" class="btn btn-outline-primary">Política</a>
+              <a href="deportes.html" class="btn btn-outline-primary">Deportes</a>
+
+              <!-- Dropdown -->
+              <div class="btn-group" role="group">
+                <button
+                  id="categoryDropdown"
+                  type="button"
+                  class="btn btn-outline-primary dropdown-toggle"
+                  data-bs-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                  Más categorías
+                </button>
+                <div class="dropdown-menu" aria-labelledby="categoryDropdown">
+                  <a class="dropdown-item" href="cultura.html">Cultura</a>
+                  <a class="dropdown-item" href="finanzas.html">Finanzas</a>
+                  <a class="dropdown-item" href="espectaculos.html">Espectáculos</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Noticias -->
+      <div class="container mt-3">
+        <div class="row gy-4 mb-4">
+          <!-- Noticia 1 -->
+          <div class="col-md-4">
+            <a href="noticia1.html" class="card-link no-link">
+              <div class="card">
+                <img src="img/img1.webp" class="card-img-top" alt="Imagen 1" />
+                <div class="card-body">
+                  <h5 class="card-title">Convención de la UIA</h5>
+                  <p class="card-text">
+                    Empresas esperan meses duros y aguardan señales sobre dólar e importaciones.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Noticia 2 -->
+          <div class="col-md-4">
+            <a href="noticia2.html" class="card-link no-link">
+              <div class="card">
+                <img src="img/img2.webp" class="card-img-top" alt="Imagen 2" />
+                <div class="card-body">
+                  <h5 class="card-title">Hablan los bancos</h5>
+                  <p class="card-text">
+                    Leliq: apuestan a un plan económico sustentable para que se diluyan con más
+                    inversión.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Noticia 3 -->
+          <div class="col-md-4">
+            <a href="noticia3.html" class="card-link no-link">
+              <div class="card">
+                <img src="img/img3.webp" class="card-img-top" alt="Imagen 3" />
+                <div class="card-body">
+                  <h5 class="card-title">Reunión Milei-Bullrich</h5>
+                  <p class="card-text">
+                    El rumor para ir a Trabajo y el enojo con Macri por amenazar con romper el pacto
+                    con LLA.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Noticia 4 -->
+          <div class="col-md-4">
+            <a href="noticia4.html" class="card-link no-link">
+              <div class="card">
+                <img src="img/img4.webp" class="card-img-top" alt="Imagen 4" />
+                <div class="card-body">
+                  <h5 class="card-title">FATCA</h5>
+                  <p class="card-text">
+                    Cuentas en Estados Unidos: cómo se usará el intercambio fiscal en la era Milei y
+                    el blanqueo.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Noticia 5 -->
+          <div class="col-md-4">
+            <a href="noticia5.html" class="card-link no-link">
+              <div class="card">
+                <img src="img/img5.webp" class="card-img-top" alt="Imagen 5" />
+                <div class="card-body">
+                  <h5 class="card-title">Cambio de gobierno</h5>
+                  <p class="card-text">
+                    "Vayan comprando generadores": la advertencia de Diana Mondino para el verano.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+
+          <!-- Noticia 6 -->
+          <div class="col-md-4">
+            <a href="noticia6.html" class="card-lin no-link">
+              <div class="card">
+                <img src="img/img6.webp" class="card-img-top" alt="Imagen 6" />
+                <div class="card-body">
+                  <h5 class="card-title">Mercado de cambios</h5>
+                  <p class="card-text">
+                    Fuerte baja del dólar blue, que rompe una barrera psicológica.
+                  </p>
+                </div>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Barra de Navegación -->
+      <div class="col-12">
+        <nav aria-label="Page navigation">
+          <ul class="pagination justify-content-center">
+            <li class="page-item disabled">
+              <a class="page-link" href="#" tabindex="-1" aria-disabled="true">Anterior</a>
+            </li>
+            <li class="page-item active"><a class="page-link" href="pagina1.html">1</a></li>
+            <li class="page-item"><a class="page-link" href="pagina2.html">2</a></li>
+            <li class="page-item"><a class="page-link" href="pagina3.html">3</a></li>
+            <li class="page-item">
+              <a class="page-link" href="pagina2.html">Siguiente</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

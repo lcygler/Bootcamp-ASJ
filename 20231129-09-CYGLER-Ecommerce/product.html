@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tienda online de indumentaria" />
+    <title>Boutique</title>
+    <link rel="stylesheet" href="css/product.css" />
+  </head>
+  <body>
+    <header>
+      <h1>myshop</h1>
+      <nav class="site-navigation">
+        <a href="home.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="demos.html">Demos</a>
+        <a href="blocks.html">Blocks</a>
+        <a href="components.html">Components</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="mycart.html">My Cart</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="search">
+        <p><strong>PRODUCTS</strong> → Sunset sunglasses</p>
+
+        <form action="search-results.html" method="GET">
+          <input type="text" name="search" placeholder="Search..." />
+          <button type="submit">
+            <img src="img/search-2.png" alt="Buscar" />
+          </button>
+
+          <select name="category">
+            <option value="public"><strong>PRICELIST</strong></option>
+            <option value="option1">Opción 1</option>
+            <option value="option2">Opción 2</option>
+            <option value="option3">Opción 3</option>
+          </select>
+        </form>
+      </section>
+
+      <div class="info-container">
+        <section class="image-container">
+          <img src="img/sunglasses.jpg" alt="Product image" />
+        </section>
+
+        <section class="detail-container">
+          <h3>Sunset sunglasses</h3>
+          <p class="price"><strong>$</strong>79.00</p>
+
+          <div class="colors">
+            <div class="color-box" style="background-color: whitesmoke"></div>
+            <div class="color-box" style="background-color: gray"></div>
+            <div class="color-box" style="background-color: lightseagreen"></div>
+            <div class="color-box" style="background-color: green"></div>
+            <div class="color-box" style="background-color: black"></div>
+          </div>
+
+          <div class="input-container">
+            <button class="quantity-button" id="decrease"><strong>-</strong></button>
+            <input type="number" class="quantity-input" value="1" min="1" />
+            <button class="quantity-button" id="increase"><strong>+</strong></button>
+            <button class="add-to-cart-button">ADD TO CART</button>
+          </div>
+
+          <hr class="line" />
+          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <hr class="line" />
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </section>
+      </div>
+    </main>
+
+    <footer>
+      <p>Copyright © 2023 Boutique</p>
+    </footer>
+  </body>
+</html>
