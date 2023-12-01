@@ -3,11 +3,236 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>HTML</title>
   </head>
   <body>
-    <p>Leandro Cygler</p>
-    <p>leandrocygler@gmail.com</p>
-    <p>Estudios: Analista de Sistemas</p>
+    <h2>Perfil</h2>
+
+    <div>
+      <p>Leandro Cygler</p>
+      <p>leandrocygler@gmail.com</p>
+      <p>Estudios: Analista de Sistemas</p>
+    </div>
+
+    <hr style="margin: 20px 0" />
+
+    <!-- Títulos -->
+    <h2>El Cronista</h2>
+
+    <div>
+      <h3>Noticias políticas</h3>
+      <h4>
+        Giros al exterior Importaciones: se tensiona el stock de la industria y la relación con
+        proveedores por los pagos
+      </h4>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, cum blanditiis eum
+        officia iste laborum numquam est quia possimus. Veniam expedita modi consectetur nulla magni
+        iure voluptatem mollitia debitis odit!
+      </p>
+    </div>
+
+    <div>
+      <h3>Noticias deportivas</h3>
+      <h4>
+        Mundial Sub-17 El video de los tres golazos del "Diablito" Echeverri para que Argentina le
+        gane a Brasil y pase a semifinales
+      </h4>
+      <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Voluptatibus, cum blanditiis eum
+        officia iste laborum numquam est quia possimus. Veniam expedita modi consectetur nulla magni
+        iure voluptatem mollitia debitis odit!
+      </p>
+    </div>
+
+    <hr style="margin: 20px 0" />
+
+    <!-- Énfasis -->
+    <h2>Diccionario</h2>
+
+    <div>
+      <p>
+        <strong>Programador:</strong> Persona que se dedica a programar <em>ordenadores</em> o
+        <em>máquinas</em>.
+      </p>
+
+      <p>
+        <strong>Computadora:</strong> Dispositivo electrónico que permite
+        <em>procesar información</em>.
+      </p>
+
+      <p>
+        <strong>Celular:</strong> Aparato electrónico que permite comunicarse a distancia mediante
+        <em>ondas electromagnéticas</em>.
+      </p>
+    </div>
+
+    <hr style="margin: 20px 0" />
+
+    <!-- Hipervínculos -->
+    <h2>Navegación</h2>
+
+    <a href="pagina2.html">Página 2</a>
+    <a href="pagina3.html">Página 3</a>
+
+    <hr style="margin: 20px 0" />
+
+    <!-- Listas -->
+    <h2>Lenguajes de programación</h2>
+
+    <ul>
+      <li>Java</li>
+      <li>JavaScript</li>
+      <li>Python</li>
+      <li>C#</li>
+      <li>PHP</li>
+    </ul>
+
+    <ol>
+      <li>JavaScript</li>
+      <li>Java</li>
+      <li>Python</li>
+      <li>C#</li>
+      <li>PHP</li>
+    </ol>
+
+    <hr style="margin: 20px 0" />
+
+    <!-- Imágenes -->
+    <h2>Imágenes</h2>
+
+    <img
+      src="https://www.futbox.com/img/v1/343/bce/23d/810/86e62e1060ed218456a5.png"
+      alt="River Plate"
+      style="width: 300px; height: 170px; margin-right: 20px"
+    />
+
+    <img src="img/argentina.jpg" alt="Argentina" style="width: 300px; height: 170px" />
+
+    <hr style="margin: 20px 0" />
+
+    <!-- Tabla 1 -->
+    <h2>Tabla 1</h2>
+
+    <table border="1">
+      <thead>
+        <th>Alumnos</th>
+        <th>Nota</th>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Leandro</td>
+          <td>9</td>
+        </tr>
+        <tr>
+          <td>Juan</td>
+          <td>10</td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <td>Promedio</td>
+        <td>9.5</td>
+      </tfoot>
+    </table>
+
+    <hr style="margin: 20px 0" />
+
+    <!-- Tabla 2 -->
+    <h2>Tabla 2</h2>
+
+    <table border="1">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Sueldo</th>
+        </tr>
+      </thead>
+
+      <tbody>
+        <tr>
+          <td>Leandro</td>
+          <td>$300.000</td>
+        </tr>
+        <tr>
+          <td>Jorge</td>
+          <td>$700.000</td>
+        </tr>
+        <tr>
+          <td>Juan</td>
+          <td>$500.000</td>
+        </tr>
+        <tr>
+          <td>Marta</td>
+          <td>$1.000.000</td>
+        </tr>
+      </tbody>
+
+      <tfoot>
+        <tr>
+          <td colspan="2">Promedio: $625.000</td>
+        </tr>
+      </tfoot>
+    </table>
+
+    <hr style="margin: 20px 0" />
+
+    <!-- Formulario 1 -->
+    <h2>Formulario</h2>
+
+    <form action="datos.php" method="GET">
+      <input type="text" placeholder="Nombre" name="nombre" /><br />
+      <input type="password" placeholder="Contraseña" name="password" /><br />
+
+      <input type="checkbox" name="Team Invierno" value="INV" /> Team Invierno<br />
+      <input type="checkbox" name="Team Verano" value="VER" /> Team Verano<br />
+
+      <input type="radio" name="genero" value="M" checked /> Masculino<br />
+      <input type="radio" name="genero" value="F" /> Femenino<br />
+
+      <select name="helado">
+        <option value="dulce">Dulce de leche</option>
+        <option value="oreo">Crema óreo</option>
+        <option value="vainilla">Vainilla</option></select
+      ><br />
+
+      <textarea name="opinion" cols="30" rows="10"></textarea><br />
+      <input type="file" name="archivo" /><br />
+
+      <button type="reset">Borrar</button>
+      <button type="submit">Enviar</button>
+    </form>
+
+    <hr style="margin: 20px 0" />
+
+    <!-- Formulario 2 -->
+    <h2>Rellena tu CV</h2>
+
+    <form action="php/insertar_cv.php" method="POST">
+      <label>Nombre</label><br />
+      <input type="text" name="nombre" maxlength="30" /><br />
+
+      <label>Apellidos</label><br />
+      <input type="text" name="apellidos" maxlength="80" /><br />
+
+      <label>Contraseña</label><br />
+      <input type="password" name="password" maxlength="10" /><br />
+
+      <label>DNI</label><br />
+      <input type="number" name="dni" min="0" max="99999999" /><br />
+
+      <label>Sexo</label><br />
+      <input type="radio" name="sexo" value="H" /> Hombre<br />
+      <input type="radio" name="sexo" value="M" /> Mujer<br />
+
+      <label>Incluir mi foto</label><br />
+      <input type="file" name="archivo" /><br />
+
+      <input type="checkbox" name="boletin" value="boletin" checked />
+      <label>Suscribirme al boletín de novedades.</label><br />
+
+      <button type="submit">Guardar cambios</button>
+    </form>
   </body>
 </html>
