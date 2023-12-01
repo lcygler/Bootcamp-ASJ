@@ -1,8 +1,7 @@
 // alert("Hola Mundo");
 
-function saludar() {
-  let mensaje = "Hola Mundo";
-  alert(mensaje);
+function saludar(nombre) {
+  alert(`Hola, ${nombre}!`);
 }
 
 function ingresarTexto() {
@@ -37,7 +36,8 @@ function calcularTotal(precio, cantidad) {
   return precio * cantidad;
 }
 
-saludar();
+let nombreIngresado = prompt("Ingrese su nombre:");
+saludar(nombreIngresado);
 
 // Ejercicio 1
 let texto = ingresarTexto();
