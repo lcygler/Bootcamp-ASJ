@@ -1,6 +1,7 @@
 //* Bar
 let opcionMenu;
 let opcionCarta;
+let opcionValida;
 let total = 0;
 let propina;
 let dejarPropina;
@@ -26,7 +27,15 @@ const carta =
 alert("¡Bienvenido/a al bar!");
 
 while (opcionMenu != FIN) {
-  opcionMenu = parseInt(prompt(menuPrincipal));
+  do {
+    opcionMenu = parseInt(prompt(menuPrincipal));
+
+    opcionValida = opcionMenu >= 1 && opcionMenu <= 4;
+
+    if (!opcionValida) {
+      alert("Ingrese una opción valida (1-4).");
+    }
+  } while (opcionMenu < 1 || opcionMenu > 4);
 
   switch (opcionMenu) {
     // Mostrar carta
