@@ -3,19 +3,19 @@ let numero;
 let secuencia;
 
 const ingresarNumero = () => {
-  let numero;
+  let numeroIngresado;
   let numeroValido;
 
   do {
-    numero = parseInt(prompt("Ingrese un número:"));
-    numeroValido = !isNaN(numero) & (numero >= 1);
+    numeroIngresado = parseInt(prompt("Ingrese un número:"));
+    numeroValido = !isNaN(numeroIngresado) & (numeroIngresado >= 1);
 
     if (!numeroValido) {
       alert("Ingrese un número positivo.");
     }
-  } while (isNaN(numero) || numero < 1);
+  } while (isNaN(numeroIngresado) || numeroIngresado < 1);
 
-  return numero;
+  return numeroIngresado;
 };
 
 const calcularFibonacci = (numero) => {
