@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tienda online de indumentaria" />
+    <title>Boutique</title>
+    <link rel="stylesheet" href="css/cart.css" />
+    <script src="js/cart.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>BOUTIQUE</h1>
+      <nav class="site-navigation">
+        <a href="shop.html">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="demos.html">Demos</a>
+        <a href="blocks.html">Blocks</a>
+        <a href="components.html">Components</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="cart.html" class="active">My Cart</a>
+      </nav>
+    </header>
+
+    <main>
+      <!-- Listado de productos -->
+      <section class="cart-items">
+        <!-- Producto 1 -->
+        <div class="cart-item">
+          <img src="img/product.jpg" alt="Yellow scarf and shoes" />
+          <div class="product-details">
+            <h3>Yellow scarf and shoes</h3>
+            <p><strong>$</strong>120.00</p>
+            <p><strong>Subtotal:</strong> $XXX.XX</p>
+
+            <!-- Modificar cantidad -->
+            <div class="quantity-controls">
+              <button class="quantity-button">-</button>
+              <input type="number" class="quantity-input" value="1" min="1" />
+              <button class="quantity-button">+</button>
+
+              <!-- Eliminar producto -->
+              <button class="remove-button">x</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Total del carrito -->
+        <div class="total">
+          <p><strong>Total:</strong> $XXX.XX</p>
+        </div>
+
+        <!-- Finalizar compra / Vaciar carrito -->
+        <div class="cart-buttons">
+          <button class="empty-button">Vaciar Carrito</button>
+          <button class="checkout-button">Finalizar Compra</button>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>Copyright © 2023 Boutique</p>
+    </footer>
+  </body>
+</html>

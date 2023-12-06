@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Tienda online de indumentaria" />
+    <title>Boutique</title>
+    <link rel="stylesheet" href="css/home.css" />
+    <script src="js/init.js"></script>
+    <script src="js/home.js"></script>
+  </head>
+  <body>
+    <header>
+      <h1>BOUTIQUE</h1>
+      <nav class="site-navigation">
+        <a href="home.html" class="active">Home</a>
+        <a href="shop.html">Shop</a>
+        <a href="demos.html">Demos</a>
+        <a href="blocks.html">Blocks</a>
+        <a href="components.html">Components</a>
+        <a href="contact.html">Contact Us</a>
+        <a href="cart.html">My Cart</a>
+      </nav>
+    </header>
+
+    <main>
+      <section class="search">
+        <form action="search-results.html" method="GET">
+          <input type="text" name="search" placeholder="Search..." />
+          <button type="submit">
+            <img src="img/search-1.png" alt="Buscar" />
+          </button>
+
+          <select name="category">
+            <option value="public"><strong>PUBLIC PRICELIST</strong></option>
+            <option value="option1">Option 1</option>
+            <option value="option2">Option 2</option>
+            <option value="option3">Option 3</option>
+          </select>
+        </form>
+
+        <nav class="page-navigation">
+          <a href="#" class="prev">Prev</a>
+          <a href="home-1.html" class="active">1</a>
+          <a href="home-2.html">2</a>
+          <a href="home-3.html">3</a>
+          <a href="home-4.html">4</a>
+          <a href="home-2.html">Next</a>
+        </nav>
+      </section>
+
+      <section>
+        <!-- Listado de productos -->
+        <ul class="products">
+          <!-- Producto 1 -->
+          <li class="product">
+            <a href="product.html">
+              <img src="img/product-1.png" alt="Yellow scarf and shoes" />
+              <h3>Yellow scarf and shoes</h3>
+              <p><strong>$</strong>120.00</p>
+            </a>
+
+            <button id="cart-button1" class="cart-button">
+              <img src="img/cart.png" alt="Add to Cart" />
+            </button>
+          </li>
+
+          <!-- Producto 2 -->
+          <li class="product">
+            <a href="product.html">
+              <img src="img/product-2.png" alt="White Glasses" />
+              <h3>White Glasses</h3>
+              <p><strong>$</strong>49.00</p>
+            </a>
+
+            <button id="cart-button2" class="cart-button">
+              <img src="img/cart.png" alt="Add to Cart" />
+            </button>
+          </li>
+
+          <!-- Producto 3 -->
+          <li class="product">
+            <a href="product.html">
+              <img src="img/product-3.png" alt="Wooden Airplane" />
+              <h3>Wooden Airplane</h3>
+              <p><strong>$</strong>49.00</p>
+            </a>
+
+            <button id="cart-button3" class="cart-button">
+              <img src="img/cart.png" alt="Add to Cart" />
+            </button>
+          </li>
+
+          <!-- Producto 4 -->
+          <li class="product">
+            <a href="product.html">
+              <img src="img/product-4.png" alt="Colorful Teacups" />
+              <h3>Colorful Teacups</h3>
+              <p><strong>$</strong>9.00</p>
+            </a>
+
+            <button id="cart-button4" class="cart-button">
+              <img src="img/cart.png" alt="Add to Cart" />
+            </button>
+          </li>
+
+          <!-- Producto 5 -->
+          <li class="product">
+            <a href="product.html">
+              <img src="img/product-5.png" alt="Elegant handbag" />
+              <h3>Elegant handbag</h3>
+              <p>Unique item - Made of high quality genuine italian leather</p>
+              <p><strong>$</strong>49.00</p>
+            </a>
+
+            <button id="cart-button5" class="cart-button">
+              <img src="img/cart.png" alt="Add to Cart" />
+            </button>
+          </li>
+
+          <!-- Producto 6 -->
+          <li class="product">
+            <a href="product.html">
+              <img src="img/product-6.png" alt="Mini iTablet" />
+              <h3>Mini iTablet</h3>
+              <p>Color: White</p>
+              <p>Capacity: 16GB</p>
+              <p><strong>$</strong>79.00</p>
+            </a>
+
+            <button id="cart-button6" class="cart-button">
+              <img src="img/cart.png" alt="Add to Cart" />
+            </button>
+          </li>
+
+          <!-- Producto 7 -->
+          <li class="product">
+            <a href="product.html">
+              <img src="img/product-7.png" alt="Dried Pasta" />
+              <h3>Dried Pasta</h3>
+              <p>Made with all-natural ingredients.</p>
+              <p>Healthy and cooksup quick!</p>
+              <p><strong>$</strong>16.00</p>
+            </a>
+
+            <button id="cart-button7" class="cart-button">
+              <img src="img/cart.png" alt="Add to Cart" />
+            </button>
+          </li>
+
+          <!-- Producto 8 -->
+          <li class="product">
+            <a href="product.html">
+              <img src="img/product-8.png" alt="Essential Oils" />
+              <h3>Essential Oils</h3>
+              <p>Sweet arome of lavender. Stimulating fragance of eucalyptus.</p>
+              <p><strong>$</strong>159.00</p>
+            </a>
+
+            <button id="cart-button8" class="cart-button">
+              <img src="img/cart.png" alt="Add to Cart" />
+            </button>
+          </li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>Copyright © 2023 Boutique</p>
+    </footer>
+  </body>
+</html>

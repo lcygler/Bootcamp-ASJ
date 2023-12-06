@@ -1,0 +1,179 @@
+body {
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  font-size: 16px;
+  min-height: 95vh;
+}
+
+header {
+  color: #000;
+  display: flex;
+  padding: 20px;
+}
+
+h1 {
+  font-size: 24px;
+  margin-left: 5%;
+}
+
+nav {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin-left: 40%;
+}
+
+nav a {
+  color: #000;
+  font-weight: 600;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+nav a:hover {
+  color: #52b4c1;
+  cursor: pointer;
+}
+
+nav .active {
+  color: #52b4c1;
+}
+
+a {
+  margin-right: 20px;
+}
+
+main {
+  display: grid;
+  flex: 1;
+  height: 100%;
+  place-items: center;
+}
+
+.cart-items {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+}
+
+.cart-item {
+  align-items: center;
+  border: 1px solid #eee;
+  display: flex;
+  margin-bottom: 20px;
+  padding: 20px;
+  width: 500px;
+}
+
+.cart-item img {
+  margin-right: 20px;
+  width: 200px;
+}
+
+.cart-item h3 {
+  color: #52b4c1;
+  margin: 10px;
+}
+
+.cart-item p {
+  margin: 10px;
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+}
+
+.quantity-controls {
+  align-items: center;
+  display: flex;
+  margin: 10px;
+}
+
+.quantity-button {
+  background-color: #52b4c1;
+  margin: 0 5px;
+}
+
+.quantity-button,
+.remove-button {
+  align-items: center;
+  border: none;
+  border-radius: 50%;
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  font-weight: 600;
+  height: 30px;
+  justify-content: center;
+  padding: 5px;
+  width: 30px;
+}
+
+.quantity-button:hover {
+  background-color: #2a8fa1;
+}
+
+.quantity-input {
+  border: 1px solid #ccc;
+  padding: 5px;
+  text-align: center;
+  width: 30px;
+}
+
+.remove-button {
+  background-color: #ff5050;
+}
+
+.remove-button:hover {
+  background-color: #cc0000;
+}
+
+.subtotal {
+  margin-top: 10px;
+}
+
+.cart-buttons {
+  display: flex;
+  margin-top: 20px;
+}
+
+.checkout-button,
+.empty-button {
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  margin: 0 10px;
+  padding: 10px;
+}
+
+.checkout-button {
+  background-color: #52b4c1;
+}
+
+.checkout-button:hover {
+  background-color: #2a8fa1;
+}
+
+.empty-button {
+  background-color: #ff5050;
+}
+
+.empty-button:hover {
+  background-color: #cc0000;
+}
+
+.total {
+  font-size: 18px;
+}
+
+footer {
+  bottom: 0;
+  color: black;
+  padding: 20px;
+  text-align: center;
+  width: 100vw;
+}
