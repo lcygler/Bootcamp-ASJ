@@ -1,0 +1,10 @@
+.calculadora {
+  background-color: #ffffff;
+  color: #000000;
+  width: 200px;
+}
+
+.modo-oscuro {
+  background-color: #333333;
+  color: #ffffff;
+}

@@ -1,6 +1,8 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const calculadora = document.getElementsByClassName("calculadora")[0];
   const pantalla = document.getElementById("pantalla");
   const botones = document.getElementsByTagName("button");
+  const btnCambiarTema = document.getElementById("btn-tema");
 
   const CANTIDAD_DECIMALES = 6;
   let valorPantalla = "";
@@ -18,6 +20,23 @@ document.addEventListener("DOMContentLoaded", function () {
   function limpiarPantalla() {
     valorPantalla = "";
     pantalla.value = valorPantalla;
+  }
+
+  function cambiarTema() {
+    calculadora.classList.toggle("modo-oscuro");
+    const modoOscuroActivado = calculadora.classList.contains("modo-oscuro");
+
+    if (modoOscuroActivado) {
+      btnCambiarTema.textContent = "MC";
+      btnCambiarTema.classList.remove("btn-dark");
+      btnCambiarTema.classList.add("btn-light");
+      document.body.style.backgroundColor = "#333333";
+    } else {
+      btnCambiarTema.textContent = "MO";
+      btnCambiarTema.classList.remove("btn-light");
+      btnCambiarTema.classList.add("btn-dark");
+      document.body.style.backgroundColor = "#ffffff";
+    }
   }
 
   function calcular() {
@@ -72,6 +91,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
         case "C":
           limpiarPantalla();
+          break;
+
+        case "MO":
+        case "MC":
+          cambiarTema();
           break;
 
         case "+":
