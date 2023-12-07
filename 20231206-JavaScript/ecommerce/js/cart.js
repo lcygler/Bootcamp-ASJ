@@ -158,7 +158,7 @@ document.addEventListener("DOMContentLoaded", function () {
       updateCart();
       renderCartItems();
       alert("Su compra se realizó con éxito. ¡Que la disfrutes!");
-      window.location.href = "home.html";
+      window.location.href = "index.html";
     }
   });
 });
