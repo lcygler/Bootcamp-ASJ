@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", function () {
   // Obtener carrito
   let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // Seleecionar elementos
+  // Seleccionar elementos
   const cartItemsContainer = document.querySelector(".cart-items");
   const totalContainer = document.getElementById("total-container");
   const emptyButton = document.querySelector(".empty-button");
