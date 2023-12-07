@@ -82,6 +82,15 @@ document.addEventListener("DOMContentLoaded", function () {
 
     // Actualizar total
     updateTotal();
+
+    // Mostrar/ocultar botones
+    if (cart.length > 0) {
+      emptyButton.style.display = "inline-block";
+      checkoutButton.style.display = "inline-block";
+    } else {
+      emptyButton.style.display = "none";
+      checkoutButton.style.display = "none";
+    }
   }
 
   // Decrementar cantidad
