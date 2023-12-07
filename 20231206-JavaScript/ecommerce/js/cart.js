@@ -52,7 +52,7 @@ document.addEventListener("DOMContentLoaded", function () {
       quantityInput.type = "number";
       quantityInput.value = product.quantity;
       quantityInput.min = "1";
-      quantityInput.addEventListener("input", () => updateQuantity(index, quantityInput));
+      quantityInput.addEventListener("input", () => updateQuantity(index, quantityInput.value));
 
       const increaseButton = document.createElement("button");
       increaseButton.classList.add("quantity-button");
@@ -110,8 +110,8 @@ document.addEventListener("DOMContentLoaded", function () {
   }
 
   // Actualizar cantidad
-  function updateQuantity(index, inputElement) {
-    const newQuantity = parseInt(inputElement.value);
+  function updateQuantity(index, inputValue) {
+    const newQuantity = parseInt(inputValue);
 
     if (!isNaN(newQuantity) && newQuantity > 0) {
       cart[index].quantity = newQuantity;
