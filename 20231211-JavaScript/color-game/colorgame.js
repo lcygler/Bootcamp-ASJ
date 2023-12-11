@@ -1,4 +1,4 @@
-let colores = [
+const colores = [
   "rgb(240, 14, 128)",
   "rgb(143, 174, 110)",
   "rgb(61, 42, 163)",
@@ -7,20 +7,20 @@ let colores = [
   "rgb(211, 73, 84)",
 ];
 
-let cuadrados = document.querySelectorAll(".square");
-let nombreColor = document.getElementById("colorDisplay");
-let mensaje = document.getElementById("message");
-let h1 = document.getElementById("h1");
+const cuadrados = document.querySelectorAll(".square");
+const nombreColor = document.getElementById("colorDisplay");
+const mensaje = document.getElementById("message");
+const h1 = document.getElementById("h1");
 
-let colorRandom = pickColor();
-nombreColor.innerHTML = colorRandom;
+const colorRandom = pickColor();
+nombreColor.innerHTML = `${colorRandom.toUpperCase()}`;
 
 for (let i = 0; i < cuadrados.length; i++) {
   cuadrados[i].style.backgroundColor = colores[i];
 
   cuadrados[i].addEventListener("click", () => {
-    let cuadradoElegido = document.getElementById(`cuadrado${i + 1}`);
-    let colorCuadrado = cuadradoElegido.style.backgroundColor;
+    const cuadradoElegido = document.getElementById(`cuadrado${i + 1}`);
+    const colorCuadrado = cuadradoElegido.style.backgroundColor;
 
     if (colorCuadrado === colorRandom) {
       mensaje.innerHTML = "¡Correcto!";
@@ -42,7 +42,7 @@ function changeColors(color) {
 
 // Elegir un color aleatorio
 function pickColor() {
-  let colorRandom = Math.floor(Math.random() * colores.length);
-  let pickedColor = colores[colorRandom];
+  const colorRandom = Math.floor(Math.random() * colores.length);
+  const pickedColor = colores[colorRandom];
   return pickedColor;
 }
