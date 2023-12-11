@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Promises</title>
+  </head>
+  <body>
+    <script>
+      // Promesa sin demora
+      let completo = true;
+
+      const promesa = new Promise((resolve, reject) => {
+        if (completo) {
+          resolve("Se resolvió la promesa correctamente.");
+        } else {
+          reject("Ups... Algo salió mal.");
+        }
+      });
+
+      promesa.then((response) => {
+        console.log(promesa);
+      });
+
+      // Promesa con demora
+      const promesaAsync = new Promise((resolve, reject) => {
+        if (completo) {
+          setTimeout(() => {
+            resolve("Se resolvió petición asíncrona.");
+          }, 5000);
+        } else {
+          reject("Ups... Algo salió mal.");
+        }
+      });
+
+      promesaAsync.then((response) => {
+        console.log(response);
+      });
+
+      // Llamar a servidor o API
+      const obtenerUsuarios = new Promise((resolve, reject) => {
+        if (completo) {
+          resolve([
+            {
+              id: 1,
+              nombre: "Juan",
+              apellido: "Pérez",
+            },
+            {
+              id: 2,
+              nombre: "Carlos",
+              apellido: "Roberto",
+            },
+          ]);
+        } else {
+          reject("Error al obtener datos de la API.");
+        }
+      });
+
+      obtenerUsuarios
+        .then((response) => {
+          console.log(response);
+        })
+        .catch((error) => {
+          console.error(error);
+        });
+    </script>
+  </body>
+</html>

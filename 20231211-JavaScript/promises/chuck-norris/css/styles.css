@@ -1,0 +1,22 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  justify-content: center;
+}
+
+#imagen {
+  height: 250px;
+  width: 250px;
+}
+
+#actualizar {
+  margin: 20px 0;
+  width: 100px;
+}

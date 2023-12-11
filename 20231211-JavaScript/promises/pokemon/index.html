@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pokemon</title>
+    <link rel="stylesheet" href="css/styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <div>
+        <input type="text" name="" id="pokemon" placeholder="Ingrese Pokémon..." />
+        <button id="buscar">Buscar</button>
+      </div>
+      <img src="" alt="" id="imagen" />
+      <p id="info"></p>
+    </div>
+
+    <script>
+      const buscar = document.getElementById("buscar");
+      const imagen = document.getElementById("imagen");
+      const info = document.getElementById("info");
+
+      buscar.addEventListener("click", () => {
+        const random = Math.floor(Math.random() * 1000) + 1;
+        const pokemon = document.getElementById("pokemon").value || random;
+
+        // AJAX
+        const xhttp = new XMLHttpRequest();
+        xhttp.open("GET", `https://pokeapi.co/api/v2/pokemon/${pokemon}`);
+        xhttp.send();
+
+        xhttp.onreadystatechange = function () {
+          if (this.readyState == 4 && this.status == 200) {
+            const datoPokemon = JSON.parse(this.responseText);
+            console.log(datoPokemon);
+            info.innerText = datoPokemon.name;
+            imagen.setAttribute("src", datoPokemon.sprites.front_default);
+          }
+        };
+
+        // FETCH
+        fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
+          .then((response) => response.json())
+          // .then((response) => {
+          //   return response.json();
+          // })
+          .then((json) => {
+            console.log(json.name);
+            info.innerText = json.name.charAt(0).toUpperCase() + json.name.slice(1);
+            imagen.setAttribute("src", json.sprites.front_default);
+            imagen.style.display = "block";
+          })
+          .catch((error) => {
+            console.log("Ocurrió un error: " + error);
+          });
+      });
+    </script>
+  </body>
+</html>
