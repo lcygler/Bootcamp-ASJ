@@ -1,20 +1,24 @@
 const colores = [];
 const cantidadColores = 6;
 
+// Seleccionar elementos
 const cuadrados = document.querySelectorAll(".square");
 const nombreColor = document.getElementById("colorDisplay");
 const mensaje = document.getElementById("message");
 const h1 = document.getElementById("h1");
 const reiniciar = document.getElementById("reset");
+reiniciar.addEventListener("click", reiniciarJuego);
 
+// Inicializar colores
 for (let i = 0; i < cantidadColores; i++) {
   colores.push(generarColor());
 }
 
+// Elegir color ganador
 const colorRandom = pickColor();
 nombreColor.innerHTML = `${colorRandom.toUpperCase()}`;
-reiniciar.addEventListener("click", reiniciarJuego);
 
+// Inicializar cuadrados
 for (let i = 0; i < cuadrados.length; i++) {
   cuadrados[i].style.backgroundColor = colores[i];
 
