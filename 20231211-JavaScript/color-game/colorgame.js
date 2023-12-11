@@ -40,9 +40,9 @@ function generarNumero(numero) {
 
 // Generar color aleatorio
 function generarColor() {
-  const rojo = generarNumero(256);
-  const verde = generarNumero(256);
-  const azul = generarNumero(256);
+  const rojo = generarNumero(256); // 0-255
+  const verde = generarNumero(256); // 0-255
+  const azul = generarNumero(256); // 0-255
   return `rgb(${rojo}, ${verde}, ${azul})`;
 }
 
