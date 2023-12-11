@@ -1,19 +1,19 @@
-const colores = [
-  "rgb(240, 14, 128)",
-  "rgb(143, 174, 110)",
-  "rgb(61, 42, 163)",
-  "rgb(149, 211, 73)",
-  "rgb(211, 124, 73)",
-  "rgb(211, 73, 84)",
-];
+const colores = [];
+const cantidadColores = 6;
 
 const cuadrados = document.querySelectorAll(".square");
 const nombreColor = document.getElementById("colorDisplay");
 const mensaje = document.getElementById("message");
 const h1 = document.getElementById("h1");
+const reiniciar = document.getElementById("reset");
+
+for (let i = 0; i < cantidadColores; i++) {
+  colores.push(generarColor());
+}
 
 const colorRandom = pickColor();
 nombreColor.innerHTML = `${colorRandom.toUpperCase()}`;
+reiniciar.addEventListener("click", reiniciarJuego);
 
 for (let i = 0; i < cuadrados.length; i++) {
   cuadrados[i].style.backgroundColor = colores[i];
@@ -33,6 +33,26 @@ for (let i = 0; i < cuadrados.length; i++) {
   });
 }
 
+// Generar número aleatorio
+function generarNumero(numero) {
+  return Math.floor(Math.random() * numero);
+}
+
+// Generar color aleatorio
+function generarColor() {
+  const rojo = generarNumero(256);
+  const verde = generarNumero(256);
+  const azul = generarNumero(256);
+  return `rgb(${rojo}, ${verde}, ${azul})`;
+}
+
+// Elegir un color aleatorio
+function pickColor() {
+  const colorRandom = generarNumero(colores.length);
+  const pickedColor = colores[colorRandom];
+  return pickedColor;
+}
+
 // Cambiar color a todos los cuadrados
 function changeColors(color) {
   for (let i = 0; i < cuadrados.length; i++) {
@@ -40,9 +60,7 @@ function changeColors(color) {
   }
 }
 
-// Elegir un color aleatorio
-function pickColor() {
-  const colorRandom = Math.floor(Math.random() * colores.length);
-  const pickedColor = colores[colorRandom];
-  return pickedColor;
+// Reiniciar juego
+function reiniciarJuego() {
+  window.location.reload();
 }
