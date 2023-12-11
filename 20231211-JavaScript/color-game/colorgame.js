@@ -48,9 +48,8 @@ function generarColor() {
 
 // Elegir un color aleatorio
 function pickColor() {
-  const colorRandom = generarNumero(colores.length);
-  const pickedColor = colores[colorRandom];
-  return pickedColor;
+  const colorRandom = generarNumero(cantidadColores);
+  return colores[colorRandom];
 }
 
 // Cambiar color a todos los cuadrados
