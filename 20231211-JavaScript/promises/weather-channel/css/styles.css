@@ -50,7 +50,7 @@ button:hover {
   color: #1e2432;
   height: 350px;
   margin: 50px auto;
-  margin-left: 50px;
+  /* margin-left: 50px; */
   visibility: hidden;
   width: 300px;
 }
