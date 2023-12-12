@@ -43,7 +43,7 @@ function getWeather() {
 
       // Actualizar elementos
       ciudad.textContent = data.name;
-      temperatura.innerHTML = data.main.temp + "<sup>°C</sup>";
+      temperatura.innerHTML = data.main.temp.toFixed(1) + "<sup>°C</sup>";
       wicon.src = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
       descripcion.textContent = data.weather[0].description;
       container.style.visibility = "visible";
