@@ -1,3 +1,7 @@
+// API
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather";
+const apiKey = "fdd533266e28101881f610f2b8f1ebe1";
+
 // Obtener elementos
 const input = document.getElementById("input");
 const enviar = document.getElementById("enviar");
@@ -26,9 +30,7 @@ function getWeather() {
     return;
   }
 
-  fetch(
-    `https://api.openweathermap.org/data/2.5/weather?q=${inputValue}&units=metric&appid=fdd533266e28101881f610f2b8f1ebe1`
-  )
+  fetch(`${apiUrl}?q=${inputValue}&units=metric&appid=${apiKey}`)
     .then((response) => response.json())
     .then((data) => {
       // Respuesta API
