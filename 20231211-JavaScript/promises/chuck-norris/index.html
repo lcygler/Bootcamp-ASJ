@@ -24,9 +24,11 @@
           .then((data) => {
             console.log(data);
             chiste.innerText = data.value;
+            chiste.style.display = "block";
           })
           .catch((error) => {
             console.error("Ocurrió un error: " + error);
+            chiste.style.display = "none";
           });
       });
     </script>
