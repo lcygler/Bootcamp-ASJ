@@ -32,7 +32,6 @@ async function getWeather() {
 
   try {
     const response = await fetch(`${apiUrl}?q=${inputValue}&units=metric&appid=${apiKey}`);
-
     const data = await response.json();
 
     // Respuesta API
