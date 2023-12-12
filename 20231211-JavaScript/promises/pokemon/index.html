@@ -3,27 +3,40 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Pokemon</title>
+    <title>Pokémon</title>
     <link rel="stylesheet" href="css/styles.css" />
   </head>
   <body>
     <div class="container">
       <div>
-        <input type="text" name="" id="pokemon" placeholder="Ingrese Pokémon..." />
+        <input type="text" name="" id="input" placeholder="Ingrese Pokémon..." />
         <button id="buscar">Buscar</button>
       </div>
       <img src="" alt="" id="imagen" />
-      <p id="info"></p>
+      <h3 id="nombre"></h3>
     </div>
 
     <script>
+      // Obtener elementos
+      const input = document.getElementById("input");
       const buscar = document.getElementById("buscar");
       const imagen = document.getElementById("imagen");
-      const info = document.getElementById("info");
+      const nombre = document.getElementById("nombre");
+      const maxPokemon = 1000;
 
-      buscar.addEventListener("click", () => {
-        const random = Math.floor(Math.random() * 1000) + 1;
-        const pokemon = document.getElementById("pokemon").value || random;
+      // Agregar eventos
+      buscar.addEventListener("click", getPokemon);
+
+      input.addEventListener("keydown", (event) => {
+        if (event.key === "Enter") {
+          getPokemon();
+        }
+      });
+
+      // Obtener pokémon
+      function getPokemon() {
+        const randomId = Math.floor(Math.random() * maxPokemon) + 1;
+        const pokemon = input.value || randomId;
 
         // AJAX
         const xhttp = new XMLHttpRequest();
@@ -34,27 +47,38 @@
           if (this.readyState == 4 && this.status == 200) {
             const datoPokemon = JSON.parse(this.responseText);
             console.log(datoPokemon);
-            info.innerText = datoPokemon.name;
+            nombre.innerText = datoPokemon.name;
             imagen.setAttribute("src", datoPokemon.sprites.front_default);
           }
         };
 
         // FETCH
         fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`)
-          .then((response) => response.json())
-          // .then((response) => {
-          //   return response.json();
-          // })
+          // .then((response) => response.json())
+          .then((response) => {
+            console.log("Respuesta API:", response);
+
+            // Pokémon inválido
+            if (!response.ok) {
+              alert("Por favor, ingrese un pokémon válido.");
+              input.value = "";
+              throw new Error("Pokémon no encontrado.");
+            }
+
+            return response.json();
+          })
           .then((json) => {
-            console.log(json.name);
-            info.innerText = json.name.charAt(0).toUpperCase() + json.name.slice(1);
+            console.log("Cuerpo de la respuesta:", json);
+
+            // Actualizar elementos
+            nombre.innerText = json.name.charAt(0).toUpperCase() + json.name.slice(1);
             imagen.setAttribute("src", json.sprites.front_default);
             imagen.style.display = "block";
           })
           .catch((error) => {
-            console.error("Ocurrió un error: " + error);
+            console.error(error);
           });
-      });
+      }
     </script>
   </body>
 </html>
