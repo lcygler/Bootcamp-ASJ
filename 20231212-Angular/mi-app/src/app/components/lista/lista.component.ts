@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./lista.component.css'],
 })
 export class ListaComponent {
-  texto = 'Componente "lista"';
+  texto = "Componente 'LISTA'";
 }

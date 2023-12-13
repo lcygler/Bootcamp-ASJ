@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./contenido.component.css'],
 })
 export class ContenidoComponent {
-  title = "Componente 'contenido'";
+  title = "Componente 'CONTENIDO'";
   num = 0;
 
   generarAleatorio() {
