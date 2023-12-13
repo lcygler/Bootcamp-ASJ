@@ -38,17 +38,27 @@ export class TodolistComponent {
   }
 
   deleteTask(task: any) {
-    if (!task.deleted) {
-      const confirm = window.confirm(
-        'Are you sure you want to delete this task?'
-      );
+    const message = task.deleted
+      ? 'Are you sure you want to permanently delete this task?'
+      : 'Are you sure you want to delete this task?';
 
-      if (confirm) {
+    const confirm = window.confirm(message);
+
+    if (confirm) {
+      if (task.deleted) {
+        const index = this.tasks.indexOf(task);
+
+        if (index !== -1) {
+          this.tasks.splice(index, 1);
+        }
+      } else {
         task.deleted = true;
       }
-    } else {
-      task.deleted = false;
     }
+  }
+
+  recoverTask(task: any) {
+    task.deleted = false;
   }
 
   clearAll() {
@@ -56,6 +66,7 @@ export class TodolistComponent {
 
     if (confirm) {
       this.tasks.forEach((task) => (task.deleted = true));
+      this.filter = 'All';
     }
   }
 

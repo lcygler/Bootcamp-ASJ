@@ -50,8 +50,19 @@
 
         <!-- Actions -->
         <div class="btn-group my-2 btn-actions">
-          <button class="btn btn-sm btn-success" (click)="completeTask(task)">
+          <button
+            *ngIf="!task.deleted"
+            class="btn btn-sm btn-success"
+            (click)="completeTask(task)"
+          >
             Done
+          </button>
+          <button
+            *ngIf="task.deleted"
+            class="btn btn-sm btn-primary"
+            (click)="recoverTask(task)"
+          >
+            Recover
           </button>
           <button class="btn btn-sm btn-danger" (click)="deleteTask(task)">
             Delete
