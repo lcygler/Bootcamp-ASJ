@@ -44,10 +44,10 @@ export class TodolistComponent {
       );
 
       if (confirm) {
-        task.deleted = !task.deleted;
+        task.deleted = true;
       }
     } else {
-      task.deleted = !task.deleted;
+      task.deleted = false;
     }
   }
 
