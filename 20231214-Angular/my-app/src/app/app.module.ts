@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
+import { AppRoutingModule } from './app-routing.module';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { MainComponent } from './components/main/main.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
@@ -28,6 +29,7 @@ import { HijoComponent } from './components/misc/hijo/hijo.component';
     HijoComponent
   ],
   imports: [
+    AppRoutingModule,
     BrowserModule,
     NgbModule,
     FormsModule
