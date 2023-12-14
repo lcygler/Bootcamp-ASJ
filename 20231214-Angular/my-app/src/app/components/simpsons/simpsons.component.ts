@@ -10,25 +10,14 @@ export class SimpsonsComponent {
   personajes: any[] = [];
 
   agregarPersonaje() {
-    // Validar campos
-    const camposValidos =
-      this.nuevoPersonaje.nombre &&
-      this.nuevoPersonaje.imagen &&
-      this.nuevoPersonaje.rol;
+    this.personajes.push({
+      nombre: this.nuevoPersonaje.nombre,
+      imagen: this.nuevoPersonaje.imagen,
+      rol: this.nuevoPersonaje.rol,
+    });
 
-    if (camposValidos) {
-      // Agregar personaje
-      this.personajes.push({
-        nombre: this.nuevoPersonaje.nombre,
-        imagen: this.nuevoPersonaje.imagen,
-        rol: this.nuevoPersonaje.rol,
-      });
-
-      // Limpiar formulario
-      this.nuevoPersonaje = {};
-    } else {
-      alert('Por favor, completa todos los campos.');
-    }
+    // Limpiar formulario
+    this.nuevoPersonaje = {};
   }
 
   eliminarPersonajes() {

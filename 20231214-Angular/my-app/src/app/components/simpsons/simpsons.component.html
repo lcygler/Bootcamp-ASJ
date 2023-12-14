@@ -37,7 +37,16 @@
           </div>
 
           <div class="d-flex justify-content-center mt-3">
-            <button class="btn btn-primary" (click)="agregarPersonaje()">
+            <button
+              class="btn btn-primary"
+              (click)="agregarPersonaje()"
+              [ngClass]="{
+                disabled:
+                  !nuevoPersonaje.nombre ||
+                  !nuevoPersonaje.imagen ||
+                  !nuevoPersonaje.rol
+              }"
+            >
               Agregar
             </button>
           </div>
