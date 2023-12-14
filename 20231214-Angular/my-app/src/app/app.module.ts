@@ -10,6 +10,9 @@ import { FooterComponent } from './components/footer/footer.component';
 import { SidebarComponent } from './components/sidebar/sidebar.component';
 import { TodolistComponent } from './components/todolist/todolist.component';
 import { AboutComponent } from './components/about/about.component';
+import { SimpsonsComponent } from './components/simpsons/simpsons.component';
+import { PadreComponent } from './components/misc/padre/padre.component';
+import { HijoComponent } from './components/misc/hijo/hijo.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,10 @@ import { AboutComponent } from './components/about/about.component';
     FooterComponent,
     SidebarComponent,
     TodolistComponent,
-    AboutComponent
+    AboutComponent,
+    SimpsonsComponent,
+    PadreComponent,
+    HijoComponent
   ],
   imports: [
     BrowserModule,
