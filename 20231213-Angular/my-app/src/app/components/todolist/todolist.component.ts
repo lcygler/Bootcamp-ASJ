@@ -76,7 +76,7 @@ export class TodolistComponent {
     );
 
     if (confirm) {
-      this.tasks = [];
+      this.tasks = this.tasks.filter((task) => !task.deleted);
       this.filter = 'All';
     }
   }
