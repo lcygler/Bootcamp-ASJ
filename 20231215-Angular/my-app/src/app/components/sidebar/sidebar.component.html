@@ -1,6 +1,6 @@
 <div class="d-flex flex-column flex-shrink-0 p-3 bg-body-tertiary my-container">
   <a
-    routerLink=""
+    routerLink="/"
     class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-body-emphasis text-decoration-none"
   >
     <span class="fs-4">Projects</span>
@@ -9,7 +9,7 @@
   <ul class="nav nav-pills flex-column mb-auto">
     <li class="nav-item">
       <a
-        routerLink="projects/todolist"
+        routerLink="/projects/todolist"
         class="nav-link"
         aria-current="page"
         [ngClass]="
@@ -28,7 +28,7 @@
     </li>
     <li class="nav-item">
       <a
-        routerLink="projects/simpsons"
+        routerLink="/projects/simpsons"
         class="nav-link"
         [ngClass]="
           isCurrentRoute('/projects/simpsons') ? 'active' : 'link-body-emphasis'
@@ -46,7 +46,7 @@
     </li>
     <li class="nav-item">
       <a
-        routerLink=""
+        routerLink="/"
         class="nav-link"
         [ngClass]="
           isCurrentRoute('/projects/project3') ? 'active' : 'link-body-emphasis'
@@ -64,7 +64,7 @@
     </li>
     <li class="nav-item">
       <a
-        routerLink=""
+        routerLink="/"
         class="nav-link"
         [ngClass]="
           isCurrentRoute('/projects/project4') ? 'active' : 'link-body-emphasis'
@@ -82,7 +82,7 @@
     </li>
     <li class="nav-item">
       <a
-        routerLink=""
+        routerLink="/"
         class="nav-link"
         [ngClass]="
           isCurrentRoute('/projects/project5') ? 'active' : 'link-body-emphasis'
