@@ -1,0 +1,18 @@
+<div class="border p-4 m-5">
+  <!-- Comunicación entre componentes -->
+  <h2>Componente Padre</h2>
+
+  <app-hijo
+    datoPadreAHijo="Hola, soy tu padre"
+    (eventoHijoAPadre)="recibirMensaje($event)"
+  ></app-hijo>
+
+  <p><strong>Dato de Hijo a Padre:</strong> {{ datoHijoAPadre }}</p>
+  <hr class="my-3" />
+
+  <!-- Capturar valor de input -->
+  <p>Capturando el valor del input:</p>
+  <input type="text" #myInput />
+  <button (click)="mostrarValor(myInput.value)">Mostrar</button>
+  <p class="my-3">{{ contenidoInput }}</p>
+</div>

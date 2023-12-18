@@ -1,0 +1,44 @@
+<div class="container m-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="card">
+        <div class="card-body" style="max-height: 500px; overflow-y: auto">
+          <h5 class="card-title py-2">Characters</h5>
+
+          <table class="table">
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Image</th>
+                <th></th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let character of characters" class="align-middle">
+                <td>{{ character.id }}</td>
+                <td>{{ character.name }}</td>
+                <td>
+                  <img
+                    [src]="character.image"
+                    alt="Image"
+                    style="max-height: 50px"
+                  />
+                </td>
+                <td>
+                  <a routerLink="/projects/rickandmorty/{{ character.id }}">
+                    <span
+                      class="material-icons"
+                      style="font-size: 24px; color: black"
+                      >open_in_new</span
+                    >
+                  </a>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
