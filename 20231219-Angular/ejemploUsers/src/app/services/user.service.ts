@@ -34,7 +34,7 @@ export class UserService {
     return this.http.delete(`${this.API_URL}/${id}`);
   }
 
-  // UPDATE Usuario
+  // PUT Usuario
   public updateUser(usuario: any): Observable<any> {
     console.log('HTTP UPDATE');
     return this.http.put(`${this.API_URL}/${this.datosUsuario.id}`, usuario);
