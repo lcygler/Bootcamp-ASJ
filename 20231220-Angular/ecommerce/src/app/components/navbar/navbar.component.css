@@ -13,6 +13,7 @@
 }
 
 .navbar-nav .nav-link {
+  border-radius: 5px;
   color: black;
   margin-right: 10px;
 }
