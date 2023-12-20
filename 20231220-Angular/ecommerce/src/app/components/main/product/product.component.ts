@@ -11,11 +11,11 @@ import { ProductService } from '../../../services/product.service';
 export class ProductComponent implements OnInit {
   product: any;
   productId: number = -1;
-  mensajeAlerta: string = '';
+  message: string = '';
 
   constructor(
-    public productoService: ProductService,
-    public carritoService: CartService,
+    public productService: ProductService,
+    public cartService: CartService,
     private route: ActivatedRoute
   ) {}
 
@@ -23,17 +23,17 @@ export class ProductComponent implements OnInit {
     // this.productId = parseInt(this.route.snapshot.params['id']);
     this.productId = parseInt(this.route.snapshot.paramMap.get('id')!);
 
-    this.productoService.getProductById(this.productId).subscribe((res) => {
+    this.productService.getProductById(this.productId).subscribe((res) => {
       this.product = res;
     });
   }
 
   add(): void {
-    this.carritoService.addCart(this.product);
-    this.mensajeAlerta = 'Se agrego al carrito correctamente';
+    this.cartService.add(this.product);
+    this.message = 'Se agrego al carrito correctamente';
 
     setTimeout(() => {
-      this.mensajeAlerta = '';
+      this.message = '';
     }, 2000);
   }
 

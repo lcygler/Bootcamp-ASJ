@@ -10,8 +10,8 @@ import { ProductService } from '../../../services/product.service';
 })
 export class ProductsComponent implements OnInit {
   constructor(
-    public productoService: ProductService,
-    public categoriaService: CategoryService,
+    public productService: ProductService,
+    public categoryService: CategoryService,
     private route: ActivatedRoute
   ) {}
 
@@ -29,14 +29,14 @@ export class ProductsComponent implements OnInit {
 
       if (this.categoryId) {
         // Listar productos por categoría
-        this.categoriaService
+        this.categoryService
           .getProductsByCategory(this.categoryId)
           .subscribe((res) => {
             this.products = res;
           });
       } else {
         // Listar todos los productos
-        this.productoService.getProducts().subscribe((res) => {
+        this.productService.getProducts().subscribe((res) => {
           this.products = res;
         });
       }

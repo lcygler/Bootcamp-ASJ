@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 export class ProductService {
   constructor(private http: HttpClient) {}
 
-  API_URL = 'https://api.escuelajs.co/api/v1/products';
+  private API_URL = 'https://api.escuelajs.co/api/v1/products';
 
   public getProducts(): Observable<any> {
     return this.http.get(this.API_URL);

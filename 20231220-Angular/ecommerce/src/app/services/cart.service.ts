@@ -4,47 +4,47 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class CartService {
-  private cartItems: any = [];
-  private total = 0;
+  private cart: any = [];
+  private total: number = 0;
 
   constructor() {}
 
   public getCart(): any[] {
-    return this.cartItems;
-  }
-
-  public addCart(product: any): void {
-    const productFind = this.cartItems.find(
-      (productoCart: any) => productoCart.id === product.id
-    );
-
-    if (productFind) {
-      productFind.cantidad++;
-      this.total += productFind.price;
-      console.log('Sumar cantidad', this.cartItems);
-    } else {
-      product.cantidad = 1;
-      this.cartItems.push(product);
-      this.total += product.price;
-      console.log('agregar producto', this.cartItems);
-    }
-  }
-
-  public deleteProduct(product: any): void {
-    const index = this.cartItems.indexOf(product);
-
-    if (index !== -1) {
-      this.total -= product.price * product.cantidad;
-      this.cartItems.splice(index, 1);
-    }
+    return this.cart;
   }
 
   public getTotal(): number {
     return this.total;
   }
 
-  public resetCart(): void {
-    this.cartItems = [];
+  public add(product: any): void {
+    const existingProduct = this.cart.find((p: any) => p.id === product.id);
+
+    if (existingProduct) {
+      existingProduct.quantity++;
+      this.total += existingProduct.price;
+      console.log('Se actualizó la cantidad.');
+    } else {
+      product.quantity = 1;
+      this.cart.push(product);
+      this.total += product.price;
+      console.log('Se agregó el producto al carrito.');
+    }
+
+    console.log('Carrito:', this.cart);
+  }
+
+  public delete(product: any): void {
+    const index = this.cart.indexOf(product);
+
+    if (index !== -1) {
+      this.total -= product.price * product.quantity;
+      this.cart.splice(index, 1);
+    }
+  }
+
+  public reset(): void {
+    this.cart = [];
     this.total = 0;
   }
 }
