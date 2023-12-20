@@ -28,8 +28,8 @@ export class ProductComponent implements OnInit {
     });
   }
 
-  add(): void {
-    this.cartService.add(this.product);
+  addToCart(): void {
+    this.cartService.addItem(this.product);
     this.message = '¡Se agregó el producto al carrito!';
 
     setTimeout(() => {
@@ -38,18 +38,18 @@ export class ProductComponent implements OnInit {
   }
 
   changeImage(value: any): void {
-    let imageUrl;
+    let currentImage;
 
     if (value === 1) {
-      // 1er miniatura seleccionada
-      imageUrl = this.product.images[0];
+      // 1er imagen seleccionada
+      currentImage = this.product.images[0];
       this.product.images[0] = this.product.images[1];
-      this.product.images[1] = imageUrl;
+      this.product.images[1] = currentImage;
     } else {
-      // 2da miniatura seleccionada
-      imageUrl = this.product.images[0];
+      // 2da imagen seleccionada
+      currentImage = this.product.images[0];
       this.product.images[0] = this.product.images[2];
-      this.product.images[2] = imageUrl;
+      this.product.images[2] = currentImage;
     }
   }
 

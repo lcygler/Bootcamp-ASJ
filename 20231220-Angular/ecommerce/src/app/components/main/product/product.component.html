@@ -39,7 +39,7 @@
     <p>{{ product.description }}</p>
     <p>$ {{ product.price | number : "1.2-2" }}</p>
 
-    <button (click)="add()">Comprar</button>
+    <button (click)="addToCart()">Comprar</button>
     <div
       *ngIf="message.trim() !== ''"
       class="alert alert-success alert-dismissible fade show mt-4"

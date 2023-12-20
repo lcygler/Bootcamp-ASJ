@@ -7,24 +7,24 @@ import { CartService } from '../../../services/cart.service';
   styleUrl: './cart.component.css',
 })
 export class CartComponent implements OnInit {
-  cart: any = [];
+  cartItems: any = [];
   message: string = '';
 
   constructor(public cartService: CartService) {}
 
   ngOnInit(): void {
-    this.list();
+    this.updateCartItems();
   }
 
-  list() {
-    this.cart = this.cartService.getCart();
+  updateCartItems() {
+    this.cartItems = this.cartService.getCartItems();
   }
 
-  getTotal() {
-    return this.cartService.getTotal();
+  getCartTotal() {
+    return this.cartService.getCartTotal();
   }
 
-  buy() {
+  processPurchase() {
     const result = confirm('¿Desea realizar esta compra?');
 
     if (result) {
@@ -34,17 +34,17 @@ export class CartComponent implements OnInit {
         this.message = '';
       }, 2000);
 
-      this.cartService.reset();
-      this.list();
+      this.cartService.clearCart();
+      this.updateCartItems();
     }
   }
 
-  delete(product: any) {
+  removeItem(product: any) {
     const result = confirm('¿Desea eliminar este producto?');
 
     if (result) {
-      this.cartService.delete(product);
-      this.list();
+      this.cartService.removeItem(product);
+      this.updateCartItems();
     }
   }
 

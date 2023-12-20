@@ -6,15 +6,19 @@ import { Observable } from 'rxjs';
   providedIn: 'root',
 })
 export class ProductService {
+  private API_URL = 'https://api.escuelajs.co/api/v1';
+
   constructor(private http: HttpClient) {}
 
-  private API_URL = 'https://api.escuelajs.co/api/v1/products';
-
   public getProducts(): Observable<any> {
-    return this.http.get(this.API_URL);
+    return this.http.get(`${this.API_URL}/products`);
   }
 
-  public getProductById(id: any): Observable<any> {
-    return this.http.get(this.API_URL + '/' + id);
+  public getProductById(productId: any): Observable<any> {
+    return this.http.get(`${this.API_URL}/products/${productId}`);
+  }
+
+  public getProductsByCategory(categoryId: any): Observable<any> {
+    return this.http.get(`${this.API_URL}/categories/${categoryId}/products`);
   }
 }

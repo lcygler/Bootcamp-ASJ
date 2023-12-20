@@ -1,5 +1,5 @@
 <div class="row d-flex">
-  <div class="card" style="width: 18rem" *ngFor="let product of products">
+  <div class="card" style="width: 18rem" *ngFor="let product of productList">
     <img
       [src]="product.images[0]"
       (error)="handleImageError($event)"
