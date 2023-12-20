@@ -9,7 +9,7 @@ import { ProductService } from '../../../services/product.service';
   styleUrl: './product.component.css',
 })
 export class ProductComponent implements OnInit {
-  product: any;
+  product: any = {};
   productId: number = -1;
   message: string = '';
 
@@ -30,7 +30,7 @@ export class ProductComponent implements OnInit {
 
   add(): void {
     this.cartService.add(this.product);
-    this.message = 'Se agrego al carrito correctamente';
+    this.message = '¡Se agregó el producto al carrito!';
 
     setTimeout(() => {
       this.message = '';

@@ -28,7 +28,7 @@ export class CartComponent implements OnInit {
     const result = confirm('¿Desea realizar esta compra?');
 
     if (result) {
-      this.message = 'Se realizó la compra correctamente!';
+      this.message = '¡Se realizó la compra correctamente!';
 
       setTimeout(() => {
         this.message = '';

@@ -7,7 +7,7 @@
         <tr>
           <th>Imagen</th>
           <th>Nombre</th>
-          <th>Cantidad</th>
+          <th>quantity</th>
           <th>Precio</th>
           <th>Subtotal</th>
         </tr>
@@ -18,14 +18,14 @@
             <img
               src="{{ product.images[0] }}"
               alt="{{ product.title }}"
-              width="100px"
+              height="100px"
               (error)="handleImageError($event)"
             />
           </td>
           <td>{{ product.title }}</td>
-          <td>{{ product.cantidad }}</td>
+          <td>{{ product.quantity }}</td>
           <td>$ {{ product.price | number : "1.2-2" }}</td>
-          <td>$ {{ product.price * product.cantidad | number : "1.2-2" }}</td>
+          <td>$ {{ product.price * product.quantity | number : "1.2-2" }}</td>
           <td>
             <button
               class="btn btn-sm btn-outline-danger"
@@ -36,8 +36,8 @@
           </td>
         </tr>
         <tr>
-          <td colspan="4" class="text-right">Total:</td>
-          <td colspan="2">$ {{ getTotal() | number : "1.2-2" }}</td>
+          <th colspan="4" class="text-right">TOTAL</th>
+          <th colspan="2">$ {{ getTotal() | number : "1.2-2" }}</th>
         </tr>
       </tbody>
     </table>
