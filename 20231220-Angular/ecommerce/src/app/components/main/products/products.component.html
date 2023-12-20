@@ -1,0 +1,16 @@
+<div class="row d-flex">
+  <div class="card" style="width: 18rem" *ngFor="let product of products">
+    <img
+      [src]="product.images[0]"
+      (error)="handleImageError($event)"
+      alt="{{ product.title }}"
+      style="max-height: 100px"
+      routerLink="/products/{{ product.id }}"
+    />
+    <div class="card-body">
+      <h5 class="card-title">{{ product.title | uppercase }}</h5>
+      <p class="card-text">$ {{ product.price | number : "1.2-2" }}</p>
+      <!-- <a href="#" class="btn btn-primary">Go somewhere</a>-->
+    </div>
+  </div>
+</div>

@@ -1,0 +1,63 @@
+<div class="row align-middle">
+  <div class="col-md-7">
+    <h3>My Cart</h3>
+
+    <table class="table table-hover align-middle">
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Nombre</th>
+          <th>Cantidad</th>
+          <th>Precio</th>
+          <th>Subtotal</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of cartItems; let i = index">
+          <td>
+            <img
+              src="{{ product.images[0] }}"
+              alt="{{ product.title }}"
+              width="100px"
+              (error)="handleImageError($event)"
+            />
+          </td>
+          <td>{{ product.title }}</td>
+          <td>{{ product.cantidad }}</td>
+          <td>$ {{ product.price | number : "1.2-2" }}</td>
+          <td>$ {{ product.price * product.cantidad | number : "1.2-2" }}</td>
+          <td>
+            <button
+              class="btn btn-sm btn-outline-danger"
+              (click)="delete(product)"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <td colspan="4" class="text-right">Total:</td>
+          <td colspan="2">$ {{ getTotal() | number : "1.2-2" }}</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="mt-4 d-flex justify-content-end">
+      <button
+        *ngIf="cartItems.length > 0"
+        class="btn btn-sm btn-outline-success"
+        (click)="buy()"
+      >
+        Comprar
+      </button>
+
+      <div
+        *ngIf="mensajeAlerta.trim() !== ''"
+        class="alert alert-success alert-dismissible fade show mt-4"
+        role="alert"
+      >
+        {{ mensajeAlerta }}
+      </div>
+    </div>
+  </div>
+</div>
