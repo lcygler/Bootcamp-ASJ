@@ -1,0 +1,39 @@
+<div class="row">
+  <div class="col">
+    <div id="list-example" class="list-group p-2">
+      <input
+        class="form-control me-2 mb-2"
+        type="search"
+        placeholder="Search"
+        aria-label="Search"
+        [(ngModel)]="productName"
+      />
+      <input
+        class="form-control mb-2"
+        type="number"
+        placeholder="Price"
+        aria-label="Price"
+        [(ngModel)]="price"
+      />
+      <div class="d-flex">
+        <input
+          class="form-control mb-2 me-2"
+          type="number"
+          placeholder="Min $"
+          aria-label="Min $"
+          [(ngModel)]="minPrice"
+        />
+        <input
+          class="form-control mb-2"
+          type="number"
+          placeholder="Max $"
+          aria-label="Max $"
+          [(ngModel)]="maxPrice"
+        />
+      </div>
+      <button class="btn btn-outline-success" type="submit" (click)="filter()">
+        Search
+      </button>
+    </div>
+  </div>
+</div>

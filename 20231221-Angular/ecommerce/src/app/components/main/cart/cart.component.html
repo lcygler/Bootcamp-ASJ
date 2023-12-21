@@ -1,0 +1,64 @@
+<div class="row align-middle">
+  <div class="col-md-7">
+    <h3>My Cart</h3>
+
+    <table class="table table-hover align-middle">
+      <thead>
+        <tr>
+          <th>Imagen</th>
+          <th>Descripción</th>
+          <th>Precio</th>
+          <th>Cantidad</th>
+          <th>Subtotal</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of cartItems; let i = index">
+          <td>
+            <img
+              src="{{ product.images[0] }}"
+              alt="{{ product.title }}"
+              height="100px"
+              (error)="handleImageError($event)"
+            />
+          </td>
+          <td>{{ product.title }}</td>
+          <td>$ {{ product.price | number : "1.2-2" }}</td>
+          <td>{{ product.quantity }}</td>
+          <td>$ {{ product.price * product.quantity | number : "1.2-2" }}</td>
+          <td>
+            <button
+              class="btn btn-sm btn-outline-danger"
+              (click)="removeItem(product)"
+            >
+              Eliminar
+            </button>
+          </td>
+        </tr>
+        <tr>
+          <th colspan="4" class="text-right">TOTAL</th>
+          <th colspan="2">$ {{ getCartTotal() | number : "1.2-2" }}</th>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="mt-4 d-flex justify-content-end">
+      <button
+        *ngIf="cartItems.length > 0"
+        class="btn btn-sm btn-outline-success"
+        (click)="processPurchase()"
+      >
+        Comprar
+      </button>
+
+      <div
+        *ngIf="message.trim() !== ''"
+        class="alert alert-success alert-dismissible fade show mt-4"
+        role="alert"
+      >
+        {{ message }}
+      </div>
+    </div>
+  </div>
+</div>
