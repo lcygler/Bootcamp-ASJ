@@ -7,8 +7,8 @@
         <tr>
           <th>Imagen</th>
           <th>Nombre</th>
-          <th>quantity</th>
           <th>Precio</th>
+          <th>Cantidad</th>
           <th>Subtotal</th>
         </tr>
       </thead>
@@ -23,8 +23,8 @@
             />
           </td>
           <td>{{ product.title }}</td>
-          <td>{{ product.quantity }}</td>
           <td>$ {{ product.price | number : "1.2-2" }}</td>
+          <td>{{ product.quantity }}</td>
           <td>$ {{ product.price * product.quantity | number : "1.2-2" }}</td>
           <td>
             <button
