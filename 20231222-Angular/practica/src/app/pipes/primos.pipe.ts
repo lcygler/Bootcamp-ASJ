@@ -13,7 +13,7 @@ export class PrimosPipe implements PipeTransform {
       return false;
     }
 
-    for (let i = 2, raiz = Math.sqrt(numero); i <= raiz; i++) {
+    for (let i = 2; i < numero; i++) {
       if (numero % i === 0) {
         return false;
       }
