@@ -33,8 +33,6 @@ export class ProductsComponent implements OnInit {
       this.minPrice = parseInt(paramMap.get('minPrice'));
       this.maxPrice = parseInt(paramMap.get('maxPrice'));
       this.categoryId = parseInt(paramMap.get('categoryId'));
-      console.log('minprice', this.minPrice);
-
       this.updateProducts();
     });
   }

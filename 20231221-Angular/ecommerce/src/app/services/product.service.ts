@@ -75,7 +75,6 @@ export class ProductService {
       url += `/?${params.join('&')}`;
     }
 
-    console.log('API URL:', url);
     return this.http.get(url);
   }
 
