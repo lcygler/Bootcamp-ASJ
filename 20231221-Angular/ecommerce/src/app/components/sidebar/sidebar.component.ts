@@ -8,28 +8,57 @@ import { ProductService } from '../../services/product.service';
   styleUrl: './sidebar.component.css',
 })
 export class SidebarComponent implements OnInit {
-  minPrice: number = 0;
-  maxPrice: number = 0;
-  price: number = 0;
-  productName: string = '';
+  productName: string | null = null;
+  price: number | null = null;
+  minPrice: number | null = null;
+  maxPrice: number | null = null;
+
+  categories: any = [];
+  categoryId: number | null = null;
+  categoryName: string | null = null;
 
   constructor(public productService: ProductService, private router: Router) {}
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.getCategories();
+  }
 
-  filter() {
-    // this.router.navigate([
-    //   `/${this.productName}/${this.price}/${this.minPrice}/${this.maxPrice}`,
-    // ]);
+  getCategories() {
+    this.productService.getCategories().subscribe((res) => {
+      this.categories = res;
+    });
+  }
 
-    if (this.productName === '') {
-      this.router.navigate([
-        `/all/${this.price}/${this.minPrice}/${this.maxPrice}`,
-      ]);
-    } else {
-      this.router.navigate([
-        `/${this.productName}/${this.price}/${this.minPrice}/${this.maxPrice}`,
-      ]);
-    }
+  selectCategory(categoryId: any, categoryName: any) {
+    this.categoryId = parseInt(categoryId);
+    this.categoryName = categoryName;
+    this.applyFilters();
+  }
+
+  applyFilters() {
+    const filters: any = {
+      productName: this.productName?.trim() || 'all',
+      price: this.price || 0,
+      minPrice: this.minPrice || 0,
+      maxPrice: this.maxPrice || 0,
+      categoryId: this.categoryId || 0,
+    };
+
+    const route = Object.values(filters).join('/');
+    this.router.navigate([`/products/${route}`]);
+  }
+
+  clearFilters() {
+    this.productName = null;
+    this.price = null;
+    this.minPrice = null;
+    this.maxPrice = null;
+
+    this.categories = [];
+    this.categoryId = null;
+    this.categoryName = null;
+
+    this.router.navigate(['']);
+    this.getCategories();
   }
 }

@@ -30,7 +30,7 @@ export class ProductComponent implements OnInit {
 
   addToCart(): void {
     this.cartService.addItem(this.product);
-    this.message = '¡Se agregó el producto al carrito!';
+    this.message = 'The product has been added to the cart! ✅';
 
     setTimeout(() => {
       this.message = '';
@@ -41,12 +41,12 @@ export class ProductComponent implements OnInit {
     let currentImage;
 
     if (value === 1) {
-      // 1er imagen seleccionada
+      // 1st image selected
       currentImage = this.product.images[0];
       this.product.images[0] = this.product.images[1];
       this.product.images[1] = currentImage;
     } else {
-      // 2da imagen seleccionada
+      // 2nd image selected
       currentImage = this.product.images[0];
       this.product.images[0] = this.product.images[2];
       this.product.images[2] = currentImage;

@@ -13,28 +13,78 @@
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarNav">
-      <ul class="navbar-nav">
+      <ul class="navbar-nav ms-auto">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" routerLink="">Home</a>
+          <a
+            class="nav-link active d-flex align-items-center"
+            aria-current="page"
+            routerLink=""
+            [ngClass]="{ activeRoute: isCurrentRoute('/') }"
+          >
+            <span
+              class="material-icons-outlined"
+              style="font-size: 18px; margin-right: 10px"
+            >
+              shopping_bag
+            </span>
+            Shop
+          </a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" routerLink="/categories/1">Clothes</a>
+          <a
+            class="nav-link d-flex align-items-center"
+            routerLink="/cart"
+            [ngClass]="{ activeRoute: isCurrentRoute('/cart') }"
+          >
+            <span
+              class="material-icons-outlined"
+              style="font-size: 18px; margin-right: 10px"
+            >
+              shopping_cart
+            </span>
+            Cart
+          </a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" routerLink="/categories/2">Electronics</a>
+          <a
+            class="nav-link d-flex align-items-center"
+            routerLink=""
+            [ngClass]="{ activeRoute: isCurrentRoute('/contact') }"
+          >
+            <span
+              class="material-icons-outlined"
+              style="font-size: 18px; margin-right: 10px"
+            >
+              mail
+            </span>
+            Contact
+          </a>
         </li>
+
         <li class="nav-item">
-          <a class="nav-link" routerLink="/categories/3">Furniture</a>
+          <a
+            class="nav-link d-flex align-items-center"
+            routerLink=""
+            [ngClass]="{ activeRoute: isCurrentRoute('/profile') }"
+          >
+            <span
+              class="material-icons-outlined"
+              style="font-size: 18px; margin-right: 10px"
+            >
+              person
+            </span>
+            Profile
+          </a>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/categories/5">Miscellaneous</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/categories/7">Cameras</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" routerLink="/cart">Cart</a>
-        </li>
+
+        <!-- Categorías
+        <li class="nav-item" *ngFor="let category of categories">
+          <a class="nav-link" [routerLink]="'/categories/' + category.id">
+            {{ category.name }}
+          </a>
+        </li> -->
       </ul>
     </div>
   </div>

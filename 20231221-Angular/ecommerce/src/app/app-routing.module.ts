@@ -7,12 +7,19 @@ import { ProductsComponent } from './components/main/products/products.component
 const routes: Routes = [
   { path: '', component: ProductsComponent },
   {
-    path: ':productName/:productPrice/:minPrice/:maxPrice',
-    component: ProductsComponent,
+    path: 'products',
+    children: [
+      { path: ':productId', component: ProductComponent },
+      { path: 'all/0/0/0/0', redirectTo: '/', pathMatch: 'full' },
+      {
+        path: ':productName/:productPrice/:minPrice/:maxPrice/:categoryId',
+        component: ProductsComponent,
+      },
+    ],
   },
-  { path: 'products/:productId', component: ProductComponent },
   { path: 'categories/:categoryId', component: ProductsComponent },
   { path: 'cart', component: CartComponent },
+  { path: '**', redirectTo: '' },
 ];
 
 @NgModule({

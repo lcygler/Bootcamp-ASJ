@@ -48,15 +48,22 @@ export class ProductService {
   ): Observable<any> {
     let url = `${this.API_URL}/products/?`;
 
-    if (productName !== null && productName !== '' && productName !== 'all')
-      url += `&title=${productName}`;
-    if (productPrice > 0) url += `&price=${productPrice}`;
-    if (minPrice > 0) url += `&price_min=${minPrice}`;
-    if (maxPrice > 0) url += `&price_max=${maxPrice}`;
+    if (minPrice && maxPrice && minPrice > maxPrice) {
+      const temp = minPrice;
+      minPrice = maxPrice;
+      maxPrice = temp;
+    }
+
+    if (productName && productName !== 'all') url += `&title=${productName}`;
+    if (productPrice && productPrice > 0) url += `&price=${productPrice}`;
+    if (minPrice && minPrice > 0) url += `&price_min=${minPrice}`;
+    if (maxPrice && maxPrice > 0) url += `&price_max=${maxPrice}`;
     if (categoryId > 0) url += `&categoryId=${categoryId}`;
 
-    console.log('URL API', url);
-
     return this.http.get(url);
+  }
+
+  public getCategories() {
+    return this.http.get(`${this.API_URL}/categories`);
   }
 }

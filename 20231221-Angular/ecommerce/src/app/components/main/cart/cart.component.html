@@ -5,16 +5,16 @@
     <table class="table table-hover align-middle">
       <thead>
         <tr>
-          <th>Imagen</th>
-          <th>Descripción</th>
-          <th>Precio</th>
-          <th>Cantidad</th>
+          <th>Image</th>
+          <th>Description</th>
+          <th>Price</th>
+          <th>Quantity</th>
           <th>Subtotal</th>
           <th></th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let product of cartItems; let i = index">
+        <tr *ngFor="let product of cartItems">
           <td>
             <img
               src="{{ product.images[0] }}"
@@ -29,10 +29,12 @@
           <td>$ {{ product.price * product.quantity | number : "1.2-2" }}</td>
           <td>
             <button
-              class="btn btn-sm btn-outline-danger"
+              class="btn btn-sm btn-danger d-flex justify-content-center"
               (click)="removeItem(product)"
             >
-              Eliminar
+              <span class="material-icons-outlined" style="font-size: 18px">
+                delete
+              </span>
             </button>
           </td>
         </tr>
@@ -49,15 +51,15 @@
         class="btn btn-sm btn-outline-success"
         (click)="processPurchase()"
       >
-        Comprar
+        Checkout
       </button>
 
-      <div
-        *ngIf="message.trim() !== ''"
-        class="alert alert-success alert-dismissible fade show mt-4"
-        role="alert"
-      >
-        {{ message }}
+      <div *ngIf="message.trim()" class="col-4">
+        <div
+          class="alert alert-success alert-dismissible fade show mt-4"
+          role="alert"
+          innerHTML="{{ message }}"
+        ></div>
       </div>
     </div>
   </div>

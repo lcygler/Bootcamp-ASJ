@@ -25,14 +25,15 @@ export class CartComponent implements OnInit {
   }
 
   processPurchase() {
-    const result = confirm('¿Desea realizar esta compra?');
+    const result = confirm('Do you want to proceed to checkout?');
 
     if (result) {
-      this.message = '¡Se realizó la compra correctamente!';
+      this.message =
+        'The purchase was successful.<br>Thank you for your order! 😄';
 
       setTimeout(() => {
         this.message = '';
-      }, 2000);
+      }, 2500);
 
       this.cartService.clearCart();
       this.updateCartItems();
@@ -40,7 +41,7 @@ export class CartComponent implements OnInit {
   }
 
   removeItem(product: any) {
-    const result = confirm('¿Desea eliminar este producto?');
+    const result = confirm('Are you sure you want to remove this product?');
 
     if (result) {
       this.cartService.removeItem(product);
