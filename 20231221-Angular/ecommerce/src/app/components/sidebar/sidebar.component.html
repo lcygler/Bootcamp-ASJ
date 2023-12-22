@@ -77,16 +77,16 @@
       <span
         class="text-danger mb-2"
         style="font-size: 0.8rem"
-        *ngIf="minPrice && maxPrice && minPrice > maxPrice"
+        *ngIf="productPrice && (minPrice || maxPrice)"
       >
-        Min. must be less than Max.
+        Select a price or price range.
       </span>
       <span
         class="text-danger mb-2"
         style="font-size: 0.8rem"
-        *ngIf="productPrice && (minPrice || maxPrice)"
+        *ngIf="minPrice && maxPrice && minPrice > maxPrice"
       >
-        Select a price or price range.
+        Min. must be less than Max.
       </span>
 
       <!-- Actions -->
