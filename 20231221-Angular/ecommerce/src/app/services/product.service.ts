@@ -53,21 +53,21 @@ export class ProductService {
       params.push(`title=${productName}`);
     }
 
-    if (productPrice !== null && productPrice > 0) {
+    if (productPrice && productPrice > 0) {
       params.push(`price=${productPrice}`);
     }
 
-    if (minPrice !== null && minPrice > 0) {
+    if (minPrice && minPrice > 0) {
       params.push(`price_min=${minPrice}`);
-    } else if (maxPrice > 0) {
+    } else if (maxPrice && maxPrice > 0) {
       params.push(`price_min=1`);
     }
 
-    if (maxPrice !== null && maxPrice > 0) {
+    if (maxPrice && maxPrice > 0) {
       params.push(`price_max=${maxPrice}`);
     }
 
-    if (categoryId !== null && categoryId > 0) {
+    if (categoryId && categoryId > 0) {
       params.push(`categoryId=${categoryId}`);
     }
 
