@@ -36,6 +36,10 @@ export class SidebarComponent implements OnInit {
   }
 
   applyFilters() {
+    if (this.minPrice && this.maxPrice && this.minPrice > this.maxPrice) {
+      return;
+    }
+
     const filters: any = {
       productName: this.productName?.trim() || 'all',
       price: this.price || 0,

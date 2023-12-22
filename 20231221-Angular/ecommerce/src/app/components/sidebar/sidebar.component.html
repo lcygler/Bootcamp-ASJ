@@ -38,6 +38,13 @@
           (keyup.enter)="applyFilters()"
         />
       </div>
+      <span
+        class="text-danger mb-2"
+        style="font-size: 0.8rem"
+        *ngIf="minPrice && maxPrice && minPrice > maxPrice"
+      >
+        Min. cannot be greater than max.
+      </span>
 
       <div class="dropdown mb-2">
         <button
@@ -75,6 +82,7 @@
           class="btn btn-outline-danger me-2 w-50"
           type="button"
           (click)="clearFilters()"
+          [disabled]="!productName && !price && !minPrice && !maxPrice"
         >
           Clear
         </button>
@@ -83,6 +91,10 @@
           class="btn btn-success w-50"
           type="button"
           (click)="applyFilters()"
+          [disabled]="
+            (!productName && !price && !minPrice && !maxPrice) ||
+            (minPrice && maxPrice && minPrice > maxPrice)
+          "
         >
           Search
         </button>

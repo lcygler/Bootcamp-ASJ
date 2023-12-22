@@ -46,20 +46,36 @@ export class ProductService {
     maxPrice: number,
     categoryId: number
   ): Observable<any> {
-    let url = `${this.API_URL}/products/?`;
+    let url = `${this.API_URL}/products`;
+    const params: string[] = [];
 
-    if (minPrice && maxPrice && minPrice > maxPrice) {
-      const temp = minPrice;
-      minPrice = maxPrice;
-      maxPrice = temp;
+    if (productName && productName !== 'all') {
+      params.push(`title=${productName}`);
     }
 
-    if (productName && productName !== 'all') url += `&title=${productName}`;
-    if (productPrice && productPrice > 0) url += `&price=${productPrice}`;
-    if (minPrice && minPrice > 0) url += `&price_min=${minPrice}`;
-    if (maxPrice && maxPrice > 0) url += `&price_max=${maxPrice}`;
-    if (categoryId > 0) url += `&categoryId=${categoryId}`;
+    if (productPrice !== null && productPrice > 0) {
+      params.push(`price=${productPrice}`);
+    }
 
+    if (minPrice !== null && minPrice > 0) {
+      params.push(`price_min=${minPrice}`);
+    } else if (maxPrice > 0) {
+      params.push(`price_min=1`);
+    }
+
+    if (maxPrice !== null && maxPrice > 0) {
+      params.push(`price_max=${maxPrice}`);
+    }
+
+    if (categoryId !== null && categoryId > 0) {
+      params.push(`categoryId=${categoryId}`);
+    }
+
+    if (params.length > 0) {
+      url += `/?${params.join('&')}`;
+    }
+
+    console.log('API URL:', url);
     return this.http.get(url);
   }
 
