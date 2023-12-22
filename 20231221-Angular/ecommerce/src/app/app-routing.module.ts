@@ -16,7 +16,6 @@ const routes: Routes = [
         path: ':productName/:productPrice/:minPrice/:maxPrice/:categoryId',
         component: ProductsComponent,
       },
-      // { path: 'categories/:categoryId', component: ProductsComponent },
     ],
   },
   // { path: 'categories/:categoryId', component: ProductsComponent },
