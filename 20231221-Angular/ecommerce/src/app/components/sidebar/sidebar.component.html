@@ -2,6 +2,40 @@
   <div class="col">
     <div id="list-example" class="list-group p-2">
       <h6>Filters</h6>
+
+      <!-- Categories -->
+      <div class="dropdown mb-2">
+        <button
+          class="btn btn-outline-secondary dropdown-toggle w-100"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          {{ categoryName || "All Categories" }}
+        </button>
+
+        <ul class="dropdown-menu">
+          <li>
+            <a
+              class="dropdown-item"
+              (click)="selectCategory(0, 'All Categories')"
+            >
+              All Categories
+            </a>
+          </li>
+
+          <li *ngFor="let category of categoryList">
+            <a
+              class="dropdown-item"
+              (click)="selectCategory(category.id, category.name)"
+            >
+              {{ category.name }}
+            </a>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Filters -->
       <input
         class="form-control me-2 mb-2"
         type="search"
@@ -16,7 +50,7 @@
         type="number"
         placeholder="Price"
         aria-label="Price"
-        [(ngModel)]="price"
+        [(ngModel)]="productPrice"
         (keyup.enter)="applyFilters()"
       />
 
@@ -38,51 +72,36 @@
           (keyup.enter)="applyFilters()"
         />
       </div>
+
+      <!-- Error Messages -->
       <span
         class="text-danger mb-2"
         style="font-size: 0.8rem"
         *ngIf="minPrice && maxPrice && minPrice > maxPrice"
       >
-        Min. cannot be greater than max.
+        Min. must be less than Max.
+      </span>
+      <span
+        class="text-danger mb-2"
+        style="font-size: 0.8rem"
+        *ngIf="productPrice && (minPrice || maxPrice)"
+      >
+        Select a price or price range.
       </span>
 
-      <div class="dropdown mb-2">
-        <button
-          class="btn btn-outline-secondary dropdown-toggle w-100"
-          type="button"
-          data-bs-toggle="dropdown"
-          aria-expanded="false"
-        >
-          {{ categoryName || "All Categories" }}
-        </button>
-
-        <ul class="dropdown-menu">
-          <li>
-            <a
-              class="dropdown-item"
-              (click)="selectCategory(0, 'All Categories')"
-            >
-              All Categories
-            </a>
-          </li>
-
-          <li *ngFor="let category of categories">
-            <a
-              class="dropdown-item"
-              (click)="selectCategory(category.id, category.name)"
-            >
-              {{ category.name }}
-            </a>
-          </li>
-        </ul>
-      </div>
-
+      <!-- Actions -->
       <div class="d-flex">
         <button
           class="btn btn-outline-danger me-2 w-50"
           type="button"
           (click)="clearFilters()"
-          [disabled]="!productName && !price && !minPrice && !maxPrice"
+          [disabled]="
+            (!categoryName || categoryName === 'All Categories') &&
+            !productName &&
+            !productPrice &&
+            !minPrice &&
+            !maxPrice
+          "
         >
           Clear
         </button>
@@ -92,8 +111,9 @@
           type="button"
           (click)="applyFilters()"
           [disabled]="
-            (!productName && !price && !minPrice && !maxPrice) ||
-            (minPrice && maxPrice && minPrice > maxPrice)
+            (!productName && !productPrice && !minPrice && !maxPrice) ||
+            (minPrice && maxPrice && minPrice > maxPrice) ||
+            (productPrice && (minPrice || maxPrice))
           "
         >
           Search

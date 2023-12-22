@@ -10,14 +10,16 @@ const routes: Routes = [
     path: 'products',
     children: [
       { path: ':productId', component: ProductComponent },
+      { path: 'all/0/0/0/:categoryId', component: ProductsComponent },
       { path: 'all/0/0/0/0', redirectTo: '/', pathMatch: 'full' },
       {
         path: ':productName/:productPrice/:minPrice/:maxPrice/:categoryId',
         component: ProductsComponent,
       },
+      // { path: 'categories/:categoryId', component: ProductsComponent },
     ],
   },
-  { path: 'categories/:categoryId', component: ProductsComponent },
+  // { path: 'categories/:categoryId', component: ProductsComponent },
   { path: 'cart', component: CartComponent },
   { path: '**', redirectTo: '' },
 ];

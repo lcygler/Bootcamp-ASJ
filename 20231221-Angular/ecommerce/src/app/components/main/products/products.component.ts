@@ -26,7 +26,7 @@ export class ProductsComponent implements OnInit {
     this.getUrlParams();
   }
 
-  getUrlParams() {
+  private getUrlParams() {
     this.route.paramMap.subscribe((paramMap: any) => {
       this.productName = paramMap.get('productName');
       this.productPrice = parseInt(paramMap.get('productPrice'));
@@ -37,7 +37,7 @@ export class ProductsComponent implements OnInit {
     });
   }
 
-  updateProducts() {
+  private updateProducts() {
     this.productService
       .getFilteredProducts(
         this.productName,

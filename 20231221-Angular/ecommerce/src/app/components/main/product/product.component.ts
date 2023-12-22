@@ -9,9 +9,9 @@ import { ProductService } from '../../../services/product.service';
   styleUrl: './product.component.css',
 })
 export class ProductComponent implements OnInit {
-  product: any = {};
-  productId: number = -1;
-  message: string = '';
+  product: any = { images: [''] };
+  productId: number | null = null;
+  message: string | null = null;
 
   constructor(
     public productService: ProductService,

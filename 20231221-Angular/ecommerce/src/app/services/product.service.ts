@@ -46,6 +46,9 @@ export class ProductService {
     maxPrice: number,
     categoryId: number
   ): Observable<any> {
+    const MIN_VALUE: number = 1;
+    const MAX_VALUE: number = 100000000; // 100M
+
     let url = `${this.API_URL}/products`;
     const params: string[] = [];
 
@@ -60,11 +63,13 @@ export class ProductService {
     if (minPrice && minPrice > 0) {
       params.push(`price_min=${minPrice}`);
     } else if (maxPrice && maxPrice > 0) {
-      params.push(`price_min=1`);
+      params.push(`price_min=${MIN_VALUE}`);
     }
 
     if (maxPrice && maxPrice > 0) {
       params.push(`price_max=${maxPrice}`);
+    } else if (minPrice && minPrice > 0) {
+      params.push(`price_max=${MAX_VALUE}`);
     }
 
     if (categoryId && categoryId > 0) {
@@ -75,6 +80,7 @@ export class ProductService {
       url += `/?${params.join('&')}`;
     }
 
+    console.log('API URL:', url);
     return this.http.get(url);
   }
 
