@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Practicando Pipes</h2>
+
+  <!-- Texto -->
+  <p>{{ nombre }}, {{ apellido }}</p>
+  <p>{{ nombre + ", " + apellido }}</p>
+  <p>{{ nombre | uppercase }}</p>
+  <p>{{ apellido | lowercase }}</p>
+  <p>{{ lorem | titlecase }}</p>
+
+  <!-- Moneda -->
+  <p>{{ total | currency }}</p>
+  <p>{{ total | currency : "USD" }}</p>
+  <p>{{ total | currency : "EUR" }}</p>
+
+  <!-- Fecha -->
+  <p>{{ fecha }}</p>
+  <p>{{ fecha | date }}</p>
+  <p>{{ fecha | date : "dd/MM/yyyy" }}</p>
+
+  <!-- Objeto -->
+  <p>{{ objeto }}</p>
+  <p>{{ objeto | json }}</p>
+  <p>{{ objeto | json | uppercase }}</p>
+
+  <!-- Mis pipes -->
+  <p>{{ "Hola, probando miPipe" | miPipe }}</p>
+  <p>{{ "Hola" | miPipe : "aleman" }}</p>
+  <p>{{ 5 | potencia }}</p>
+  <p>{{ 5 | potencia : 5 }}</p>
+  <p>{{ numeros | primos | toString : ", " }}</p>
+</div>
