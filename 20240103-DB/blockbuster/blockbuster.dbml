@@ -1,0 +1,222 @@
+Table peliculas {
+  id int [pk, increment]
+  nombre varchar(255)
+  precio_venta float
+  precio_alquiler float
+  id_categoria int [ref: > categorias.id]
+  id_director int [ref: > directores.id]
+  id_formato int [ref: > formatos.id]
+}
+
+Table categorias {
+  id int [pk, increment]
+  nombre varchar(255)
+}
+
+Table directores {
+  id int [pk, increment]
+  nombre varchar(255)
+  apellido varchar(255)
+  nacionalidad varchar(255)
+}
+
+Table formatos {
+  id int [pk, increment]
+  nombre varchar(255)
+}
+
+Table series {
+  id int [pk, increment]
+  nombre varchar(255)
+  precio_venta float
+  precio_alquiler float
+  id_categoria int [ref: > categorias.id]
+  id_director int [ref: > directores.id]
+  id_formato int [ref: > formatos.id]
+}
+
+Table musicas {
+  id int [pk, increment]
+  nombre varchar(255)
+  precio float
+  id_genero int [ref: > generos.id]
+  id_banda int [ref: > bandas.id]
+  id_formato int [ref: > formatos.id]
+}
+
+Table generos_musicales {
+  id int [pk, increment]
+  nombre varchar(255)
+}
+
+Table bandas {
+  id int [pk, increment]
+  nombre varchar(255)
+  apellido varchar(255)
+  nacionalidad varchar(255)
+}
+
+Table sucursales {
+  id int [pk, increment]
+  razon_social varchar(255) [unique, not null]
+  id_contacto int [ref: - contactos.id]
+  id_direccion int [ref: - direcciones.id]
+  id_datos_fiscales int [ref: - datos_fiscales.id]
+}
+
+Table sucursales_peliculas {
+  id int [pk, increment]
+  id_sucursal int [ref: > sucursales.id]
+  id_pelicula int [ref: > peliculas.id]
+}
+
+Table sucursales_series {
+  id int [pk, increment]
+  id_sucursal int [ref: > sucursales.id]
+  id_serie int [ref: > series.id]
+}
+
+Table sucursales_musicas {
+  id int [pk, increment]
+  id_sucursal int [ref: > sucursales.id]
+  id_musica int [ref: > musicas.id]
+}
+
+Table clientes_peliculas {
+  id int [pk, increment]
+  id_cliente int [ref: > clientes.id]
+  id_pelicula int [ref: > peliculas.id]
+  es_compra bit
+  fecha_operacion datetime 
+  fecha_devolucion datetime
+}
+
+Table clientes_series {
+  id int [pk, increment]
+  id_cliente int [ref: > clientes.id]
+  id_series int [ref: > series.id]
+  es_compra bit
+  fecha_operacion datetime 
+  fecha_devolucion datetime
+}
+
+Table clientes_musicas {
+  id int [pk, increment]
+  id_cliente int [ref: > clientes.id]
+  id_musica int [ref: > musicas.id]
+  fecha_operacion datetime 
+}
+
+Table empleados {
+  id int [pk, increment]
+  nombre varchar(255)
+  apellido varchar(255)
+  fecha_nacimiento date
+  id_genero int [ref: > generos.id]
+  dni varchar(255)
+  id_contacto int [ref: - contactos.id]
+  id_direccion int [ref: - direcciones.id]
+  id_datos_fiscales int [ref: - datos_fiscales.id]
+  id_sucursal int [ref: > sucursales.id]
+}
+
+Table clientes {
+  id int [pk, increment]
+  nombre varchar(255)
+  apellido varchar(255)
+  fecha_nacimiento date
+  id_genero int [ref: > generos.id]
+  dni varchar(255)
+  id_contacto int [ref: - contactos.id]
+  id_direccion int [ref: - direcciones.id]
+  id_datos_fiscales int [ref: - datos_fiscales.id]
+}
+
+Table generos {
+  id int [pk, increment]
+  nombre varchar(255)
+}
+
+Table direcciones {
+  id int [pk, increment]
+  calle varchar(255)
+  numero varchar(255)
+  codigo_postal varchar(255)
+  localidad varchar(255)
+  id_provincia int [ref: > provincias.id]
+}
+
+Table provincias {
+  id int [pk, increment]
+  nombre varchar(255)
+  id_pais int [ref: > paises.id]
+}
+
+Table paises {
+  id int [pk, increment]
+  nombre varchar(255)
+}
+
+Table contactos {
+  id int [pk, increment]
+  email varchar(255)
+  telefono varchar(255)
+}
+
+Table datos_fiscales {
+  id int [pk, increment]
+  cuil_cuit varchar(255)
+  condicion_fiscal varchar(255)
+}
+
+Table detalle_pedidos {
+  id int [pk, increment]
+  fecha datetime
+  precio float
+  id_pedido int [ref: > pedidos.id]
+  id_pelicula int [ref: > peliculas.id]
+  id_serie int [ref: > series.id]
+  id_musica int [ref: > musicas.id]
+}
+
+Table pedidos {
+  id int [pk, increment]
+  fecha datetime
+  total float
+  id_estado int [ref: > estados.id]
+  id_cliente int [ref: > clientes.id]
+  id_descuento int [ref: > descuentos.id]
+}
+
+Table estados {
+  id int [pk, increment]
+  nombre varchar(255)
+}
+
+Table descuentos {
+  id int [pk, increment]
+  descuento float
+}
+
+Table regalos {
+  id int [pk, increment]
+  nombre varchar(255)
+}
+
+Table facturas {
+  id int [pk, increment]
+  fecha_emision datetime
+  total float
+  id_pedido int [ref: - pedidos.id]
+  id_medio_de_pago int [ref: > medios_de_pago.id]
+}
+
+Table medios_de_pago {
+  id int [pk, increment]
+  nombre varchar(255)
+}
+
+Table monedas {
+  id int [pk, increment]
+  nombre varchar(255)
+}
