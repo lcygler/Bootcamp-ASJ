@@ -5,24 +5,32 @@ CREATE TABLE peliculas (
   precio_alquiler float,
   id_categoria int,
   id_director int,
-  id_formato int
+  id_formato int,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE categorias (
   id int PRIMARY KEY IDENTITY(1, 1),
-  nombre varchar(255)
+  nombre varchar(255),
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE directores (
   id int PRIMARY KEY IDENTITY(1, 1),
   nombre varchar(255),
   apellido varchar(255),
-  nacionalidad varchar(255)
+  nacionalidad varchar(255),
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE formatos (
   id int PRIMARY KEY IDENTITY(1, 1),
-  nombre varchar(255)
+  nombre varchar(255),
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE series (
@@ -32,7 +40,9 @@ CREATE TABLE series (
   precio_alquiler float,
   id_categoria int,
   id_director int,
-  id_formato int
+  id_formato int,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE musicas (
@@ -41,19 +51,25 @@ CREATE TABLE musicas (
   precio float,
   id_genero int,
   id_banda int,
-  id_formato int
+  id_formato int,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE generos_musicales (
   id int PRIMARY KEY IDENTITY(1, 1),
-  nombre varchar(255)
+  nombre varchar(255),
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE bandas (
   id int PRIMARY KEY IDENTITY(1, 1),
   nombre varchar(255),
   apellido varchar(255),
-  nacionalidad varchar(255)
+  nacionalidad varchar(255),
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE sucursales (
@@ -61,25 +77,33 @@ CREATE TABLE sucursales (
   razon_social varchar(255) UNIQUE NOT NULL,
   id_contacto int,
   id_direccion int,
-  id_datos_fiscales int
+  id_datos_fiscales int,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE sucursales_peliculas (
   id int PRIMARY KEY IDENTITY(1, 1),
   id_sucursal int,
-  id_pelicula int
+  id_pelicula int,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE sucursales_series (
   id int PRIMARY KEY IDENTITY(1, 1),
   id_sucursal int,
-  id_serie int
+  id_serie int,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE sucursales_musicas (
   id int PRIMARY KEY IDENTITY(1, 1),
   id_sucursal int,
-  id_musica int
+  id_musica int,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE clientes_peliculas (
@@ -88,7 +112,9 @@ CREATE TABLE clientes_peliculas (
   id_pelicula int,
   es_compra bit,
   fecha_operacion datetime,
-  fecha_devolucion datetime
+  fecha_devolucion datetime,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE clientes_series (
@@ -97,14 +123,18 @@ CREATE TABLE clientes_series (
   id_serie int,
   es_compra bit,
   fecha_operacion datetime,
-  fecha_devolucion datetime
+  fecha_devolucion datetime,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE clientes_musicas (
   id int PRIMARY KEY IDENTITY(1, 1),
   id_cliente int,
   id_musica int,
-  fecha_operacion datetime
+  fecha_operacion datetime,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE empleados (
@@ -117,7 +147,9 @@ CREATE TABLE empleados (
   id_contacto int,
   id_direccion int,
   id_datos_fiscales int,
-  id_sucursal int
+  id_sucursal int,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE clientes (
@@ -127,14 +159,19 @@ CREATE TABLE clientes (
   fecha_nacimiento date,
   id_genero int,
   dni varchar(255),
+  es_socio bit,
   id_contacto int,
   id_direccion int,
-  id_datos_fiscales int
+  id_datos_fiscales int,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE generos (
   id int PRIMARY KEY IDENTITY(1, 1),
-  nombre varchar(255)
+  nombre varchar(255),
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE direcciones (
@@ -143,30 +180,40 @@ CREATE TABLE direcciones (
   numero varchar(255),
   codigo_postal varchar(255),
   localidad varchar(255),
-  id_provincia int
+  id_provincia int,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE provincias (
   id int PRIMARY KEY IDENTITY(1, 1),
   nombre varchar(255),
-  id_pais int
+  id_pais int,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE paises (
   id int PRIMARY KEY IDENTITY(1, 1),
-  nombre varchar(255)
+  nombre varchar(255),
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE contactos (
   id int PRIMARY KEY IDENTITY(1, 1),
   email varchar(255),
-  telefono varchar(255)
+  telefono varchar(255),
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE datos_fiscales (
   id int PRIMARY KEY IDENTITY(1, 1),
   cuil_cuit varchar(255),
-  condicion_fiscal varchar(255)
+  condicion_fiscal varchar(255),
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE detalle_pedidos (
@@ -176,7 +223,9 @@ CREATE TABLE detalle_pedidos (
   id_pedido int,
   id_pelicula int,
   id_serie int,
-  id_musica int
+  id_musica int,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE pedidos (
@@ -185,22 +234,30 @@ CREATE TABLE pedidos (
   total float,
   id_estado int,
   id_cliente int,
-  id_descuento int
+  id_descuento int,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE estados (
   id int PRIMARY KEY IDENTITY(1, 1),
-  nombre varchar(255)
+  nombre varchar(255),
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE descuentos (
   id int PRIMARY KEY IDENTITY(1, 1),
-  descuento float
+  descuento float,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE regalos (
   id int PRIMARY KEY IDENTITY(1, 1),
-  nombre varchar(255)
+  nombre varchar(255),
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE facturas (
@@ -208,17 +265,23 @@ CREATE TABLE facturas (
   fecha_emision datetime,
   total float,
   id_pedido int,
-  id_medio_de_pago int
+  id_medio_de_pago int,
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE medios_de_pago (
   id int PRIMARY KEY IDENTITY(1, 1),
-  nombre varchar(255)
+  nombre varchar(255),
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 CREATE TABLE monedas (
   id int PRIMARY KEY IDENTITY(1, 1),
-  nombre varchar(255)
+  nombre varchar(255),
+  created_at datetime DEFAULT GETDATE(),
+  updated_at datetime DEFAULT GETDATE()
 )
 
 -- Peliculas

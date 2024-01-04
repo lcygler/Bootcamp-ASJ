@@ -25,16 +25,16 @@ INSERT INTO direcciones (calle, numero, codigo_postal, localidad, id_provincia) 
 ('Calle J', '1213', '54321', 'Ciudad E', 5);
 
 INSERT INTO contactos (email, telefono) VALUES
-('contacto1@example.com', '+123456789'),
-('contacto2@example.com', '+987654321'),
-('contacto3@example.com', '+555555555'),
-('contacto4@example.com', '+111111111'),
-('contacto5@example.com', '+999999999'),
-('contacto6@example.com', '+123456789'),
-('contacto7@example.com', '+987654321'),
-('contacto8@example.com', '+555555555'),
-('contacto9@example.com', '+111111111'),
-('contacto10@example.com', '+999999999');
+('contacto1@gmail.com', '+123456789'),
+('contacto2@outlook.com', '+987654321'),
+('contacto3@gmail.com', '+555555555'),
+('contacto4@gmail.com', '+111111111'),
+('contacto5@gmail.com', '+999999999'),
+('contacto6@hotmail.com', '+123456789'),
+('contacto7@yahoo.com', '+987654321'),
+('contacto8@outlook.com', '+555555555'),
+('contacto9@gmail.com', '+111111111'),
+('contacto10@gmail.com', '+999999999');
 
 INSERT INTO datos_fiscales (cuil_cuit, condicion_fiscal) VALUES
 ('20345678901', 'Responsable Inscripto'),
@@ -55,12 +55,12 @@ INSERT INTO generos (nombre) VALUES
 ('Ciencia Ficción'),
 ('Romance');
 
-INSERT INTO clientes (nombre, apellido, fecha_nacimiento, id_genero, dni, id_contacto, id_direccion, id_datos_fiscales) VALUES
-('Cliente1', 'Apellido1', '1990-01-01', 1, '12345678', 1, 1, 1),
-('Cliente2', 'Apellido2', '1985-05-15', 2, '23456789', 2, 2, 2),
-('Cliente3', 'Apellido3', '1982-11-30', 3, '34567890', 3, 3, 3),
-('Cliente4', 'Apellido4', '1995-03-20', 4, '45678901', 4, 4, 4),
-('Cliente5', 'Apellido5', '1988-07-10', 5, '56789012', 5, 5, 5);
+INSERT INTO clientes (nombre, apellido, fecha_nacimiento, id_genero, dni, es_socio, id_contacto, id_direccion, id_datos_fiscales) VALUES
+('Cliente1', 'Apellido1', '1990-01-01', 1, '12345678', 1, 1, 1, 1),
+('Cliente2', 'Apellido2', '1985-05-15', 2, '23456789', 0, 2, 2, 2),
+('Cliente3', 'Apellido3', '1982-11-30', 3, '34567890', 1, 3, 3, 3),
+('Cliente4', 'Apellido4', '1995-03-20', 4, '45678901', 0, 4, 4, 4),
+('Cliente5', 'Apellido5', '1988-07-10', 5, '56789012', 1, 5, 5, 5);
 
 INSERT INTO sucursales (razon_social, id_direccion, id_contacto) VALUES
 ('Sucursal 1', 6, 6),
@@ -205,7 +205,8 @@ INSERT INTO detalle_pedidos (fecha, precio, id_pedido, id_pelicula, id_serie, id
 ('2025-03-05 16:30:00', 40.25, 2, 2, 2, 2),
 ('2025-04-10 08:45:00', 50.00, 3, 3, 3, 3),
 ('2025-05-15 14:20:00', 30.25, 4, 4, 4, 4),
-('2025-06-20 10:00:00', 15.75, 5, 5, 5, 5);
+('2025-06-20 10:00:00', 15.75, 5, 5, 5, 5),
+('2025-07-20 10:00:00', 15.99, 1, 2, null, null);
 
 INSERT INTO sucursales_musicas (id_sucursal, id_musica) VALUES
 (1, 1),
