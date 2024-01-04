@@ -27,6 +27,7 @@ FROM clientes c, direcciones d, provincias p
 WHERE c.id_direccion = d.id
 AND p.id = d.id_provincia
 
+-- Operador LIKE
 SELECT c.nombre, c.apellido, p.nombre AS 'provincia'
 FROM clientes c, direcciones d, provincias p
 WHERE c.id_direccion = d.id
