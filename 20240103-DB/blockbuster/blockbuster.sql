@@ -94,7 +94,7 @@ CREATE TABLE clientes_peliculas (
 CREATE TABLE clientes_series (
   id int PRIMARY KEY IDENTITY(1, 1),
   id_cliente int,
-  id_series int,
+  id_serie int,
   es_compra bit,
   fecha_operacion datetime,
   fecha_devolucion datetime
