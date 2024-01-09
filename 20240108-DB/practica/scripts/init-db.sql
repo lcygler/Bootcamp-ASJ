@@ -22,13 +22,13 @@ CREATE TABLE types (
     type varchar(255) NOT NULL
 );
 
-CREATE TABLE branchs (
+CREATE TABLE branches (
     id int IDENTITY(1, 1) PRIMARY KEY,
     name varchar(255) NOT NULL,
-    id_companie int NOT NULL,
+    id_company int NOT NULL,
     id_location int NOT NULL,
     FOREIGN KEY (id_location) REFERENCES locations(id),
-    FOREIGN KEY (id_companie) REFERENCES companies(id)
+    FOREIGN KEY (id_company) REFERENCES companies(id)
 );
 
 CREATE TABLE genders (
@@ -57,7 +57,7 @@ CREATE TABLE products (
     FOREIGN KEY (id_type) REFERENCES types(id),
     FOREIGN KEY (id_gender) REFERENCES genders(id),
     FOREIGN KEY (id_format) REFERENCES formats(id),
-    FOREIGN KEY (id_branch) REFERENCES branchs(id)
+    FOREIGN KEY (id_branch) REFERENCES branches(id)
 );
 
 CREATE TABLE clients(
@@ -71,7 +71,7 @@ CREATE TABLE clients(
     id_location int NOT NULL,
     id_branch int NOT NULL,
     FOREIGN KEY (id_location) REFERENCES locations(id),
-    FOREIGN KEY (id_branch) REFERENCES branchs(id)
+    FOREIGN KEY (id_branch) REFERENCES branches(id)
 );
 
 CREATE TABLE employees (
@@ -85,7 +85,7 @@ CREATE TABLE employees (
     id_location int NOT NULL,
     id_branch int NOT NULL,
     FOREIGN KEY (id_location) REFERENCES locations(id),
-    FOREIGN KEY (id_branch) REFERENCES branchs(id)
+    FOREIGN KEY (id_branch) REFERENCES branches(id)
 );
 
 CREATE TABLE payment_methods (
@@ -154,7 +154,7 @@ INSERT INTO locations (street, number, id_city) VALUES
 INSERT INTO companies (name) VALUES
     ('blockbuster cordoba');
 
-INSERT INTO branchs (name, id_companie, id_location) VALUES 
+INSERT INTO branches (name, id_company, id_location) VALUES 
     ('Sucursal Principal - Tech Solutions Inc.', 1, 2),
     ('Sede Principal - Global Innovations Co.', 1, 3),
     ('Sucursal Secundaria - Global Innovations Co.', 1, 2),
