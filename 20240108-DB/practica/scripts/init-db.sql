@@ -172,6 +172,7 @@ INSERT INTO genders (gender) VALUES
     ('Drama'),
     ('Comedia'),
     ('Acción');
+
 INSERT INTO formats (format) VALUES 
     ('CD'),
     ('DVD'),
