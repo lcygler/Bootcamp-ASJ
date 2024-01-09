@@ -107,7 +107,7 @@ WHERE al.anio < 1980 OR al.anio > 1999;
 SELECT al.nombre AS album,
 		FLOOR(SUM(c.duracion)) AS minutos,
 		CEILING((SUM(c.duracion) - FLOOR(SUM(c.duracion))) * 60) AS segundos
-FROM album AS al, canciones c
-WHERE al.id = c.album_id
-AND al.id = 13
-GROUP BY al.nombre;
+FROM album AS al
+JOIN canciones c ON al.id = c.album_id
+GROUP BY al.nombre
+HAVING al.nombre LIKE '%Sgt. Pepper%';
