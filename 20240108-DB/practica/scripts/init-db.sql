@@ -1,139 +1,139 @@
 CREATE TABLE companies (
-    id int not null identity(1,1) PRIMARY KEY,
+    id int IDENTITY(1, 1) PRIMARY KEY,
     name varchar(255)
 );
 
 CREATE TABLE cities (
-    id int not null identity(1,1) PRIMARY KEY,
+    id int IDENTITY(1, 1) PRIMARY KEY,
     name varchar(255),
     cod_postal varchar(255)
 );
 
 CREATE TABLE locations (
-    id int not null identity(1,1) PRIMARY KEY,
-    street varchar(255) not null,
-    number int not null,
-    id_city int not null,
-    FOREIGN key (id_city) references cities(id)
+    id int IDENTITY(1, 1) PRIMARY KEY,
+    street varchar(255) NOT NULL,
+    number int NOT NULL,
+    id_city int NOT NULL,
+    FOREIGN KEY (id_city) REFERENCES cities(id)
 );
 
 CREATE TABLE types (
-    id int not null identity(1,1) PRIMARY KEY,
-    type varchar(255) not null
+    id int IDENTITY(1, 1) PRIMARY KEY,
+    type varchar(255) NOT NULL
 );
 
 CREATE TABLE branchs (
-    id int not null identity(1,1) PRIMARY KEY,
-    name varchar(255) not null,
-    id_companie int not null,
-    id_location int not null,
+    id int IDENTITY(1, 1) PRIMARY KEY,
+    name varchar(255) NOT NULL,
+    id_companie int NOT NULL,
+    id_location int NOT NULL,
     FOREIGN KEY (id_location) REFERENCES locations(id),
     FOREIGN KEY (id_companie) REFERENCES companies(id)
 );
 
 CREATE TABLE genders (
-    id int not null identity(1,1) PRIMARY KEY,
-    gender varchar(255) not null
+    id int IDENTITY(1, 1) PRIMARY KEY,
+    gender varchar(255) NOT NULL
 );
 
 CREATE TABLE formats (
-    id int not null identity(1,1) PRIMARY KEY,
-    format varchar(255) not null
+    id int IDENTITY(1, 1) PRIMARY KEY,
+    format varchar(255) NOT NULL
 );
 
 CREATE TABLE products (
-    id int not null identity(1,1) PRIMARY KEY,
-    title varchar(255) not null,
-    stock int not null,
-    stock_min int not null,
-    author varchar(255) not null,
+    id int IDENTITY(1, 1) PRIMARY KEY,
+    title varchar(255) NOT NULL,
+    stock int NOT NULL,
+    stock_min int NOT NULL,
+    author varchar(255) NOT NULL,
     description varchar(255),
-    sale_price float not null,
+    sale_price float NOT NULL,
     rental_price float,
-    id_type int not null,
-    id_gender int not null,
-    id_format int not null,
-    id_branch int not null,
-    FOREIGN key (id_type) references types(id),
-    FOREIGN key (id_gender) references genders(id),
-    FOREIGN key (id_format) references formats(id),
-    FOREIGN key (id_branch) references branchs(id)
+    id_type int NOT NULL,
+    id_gender int NOT NULL,
+    id_format int NOT NULL,
+    id_branch int NOT NULL,
+    FOREIGN KEY (id_type) REFERENCES types(id),
+    FOREIGN KEY (id_gender) REFERENCES genders(id),
+    FOREIGN KEY (id_format) REFERENCES formats(id),
+    FOREIGN KEY (id_branch) REFERENCES branchs(id)
 );
 
 CREATE TABLE clients(
-    id int not null identity(1,1) PRIMARY KEY,
-    name varchar(255) not null,
-    last_name varchar(255) not null,
-    email varchar(255) not null,
-    tel bigint not null,
-    birth_date date not null,
-    is_partner bit not null,
-    id_location int not null,
-    id_branch int not null,
-    FOREIGN key (id_location) references locations(id),
-    FOREIGN key (id_branch) references branchs(id)
+    id int IDENTITY(1, 1) PRIMARY KEY,
+    name varchar(255) NOT NULL,
+    last_name varchar(255) NOT NULL,
+    email varchar(255) NOT NULL,
+    tel bigint NOT NULL,
+    birth_date date NOT NULL,
+    is_partner bit NOT NULL,
+    id_location int NOT NULL,
+    id_branch int NOT NULL,
+    FOREIGN KEY (id_location) REFERENCES locations(id),
+    FOREIGN KEY (id_branch) REFERENCES branchs(id)
 );
 
 CREATE TABLE employees (
-    id int not null identity(1,1) PRIMARY KEY,
-    name varchar(255) not null,
-    last_name varchar(255) not null,
-    dni bigint not null,
-    email varchar(255) not null,
-    tel bigint not null,
-    legajo varchar(255) not null,
-    id_location int not null,
-    id_branch int not null,
-    FOREIGN key (id_location) references locations(id),
-    FOREIGN key (id_branch) references branchs(id)
+    id int IDENTITY(1, 1) PRIMARY KEY,
+    name varchar(255) NOT NULL,
+    last_name varchar(255) NOT NULL,
+    dni bigint NOT NULL,
+    email varchar(255) NOT NULL,
+    tel bigint NOT NULL,
+    legajo varchar(255) NOT NULL,
+    id_location int NOT NULL,
+    id_branch int NOT NULL,
+    FOREIGN KEY (id_location) REFERENCES locations(id),
+    FOREIGN KEY (id_branch) REFERENCES branchs(id)
 );
 
 CREATE TABLE payment_methods (
-    id int not null identity(1,1) PRIMARY KEY,
-    payment_method varchar(255) not null
+    id int IDENTITY(1, 1) PRIMARY KEY,
+    payment_method varchar(255) NOT NULL
 );
 
 CREATE TABLE orders (
-    id int not null identity(1,1) PRIMARY KEY,
-    number_order int not null,
-    date date not null,
-    total float not null,
-    discount float not null,
-    id_client int not null,
-    id_employee int not null,
-    id_payment_method int not null,
-    FOREIGN key (id_client) references clients(id),
-    FOREIGN key (id_employee) references employees(id),
-    FOREIGN key (id_payment_method) references payment_methods(id)
+    id int IDENTITY(1, 1) PRIMARY KEY,
+    number_order int NOT NULL,
+    date date NOT NULL,
+    total float NOT NULL,
+    discount float NOT NULL,
+    id_client int NOT NULL,
+    id_employee int NOT NULL,
+    id_payment_method int NOT NULL,
+    FOREIGN KEY (id_client) REFERENCES clients(id),
+    FOREIGN KEY (id_employee) REFERENCES employees(id),
+    FOREIGN KEY (id_payment_method) REFERENCES payment_methods(id)
 );
 
 CREATE TABLE order_details (
-    id int not null identity(1,1) PRIMARY KEY,
-    cant int not null,
-    is_buy bit not null,
-    price float not null,
+    id int IDENTITY(1, 1) PRIMARY KEY,
+    cant int NOT NULL,
+    is_buy bit NOT NULL,
+    price float NOT NULL,
     date_return DATE,
-    id_product int not null,
-    id_order int not null,
-    FOREIGN key (id_product) references products(id),
-    FOREIGN key (id_order) references orders(id)
+    id_product int NOT NULL,
+    id_order int NOT NULL,
+    FOREIGN KEY (id_product) REFERENCES products(id),
+    FOREIGN KEY (id_order) REFERENCES orders(id)
 );
 
 CREATE TABLE penalties (
-    id int not null identity(1,1) PRIMARY KEY,
-    date_return_real date not null,
-    amount_day float not null,
-    id_order_detail int not null,
-    FOREIGN key (id_order_detail) references order_details(id)
+    id int IDENTITY(1, 1) PRIMARY KEY,
+    date_return_real date NOT NULL,
+    amount_day float NOT NULL,
+    id_order_detail int NOT NULL,
+    FOREIGN KEY (id_order_detail) REFERENCES order_details(id)
 );
 
 CREATE TABLE bills (
-    id int not null identity(1,1) PRIMARY KEY,
-    cuil bigint not null,
-    location varchar(255) not null,
-    total float not null,
-    id_order int not null,
-    FOREIGN key (id_order) references orders(id)
+    id int IDENTITY(1, 1) PRIMARY KEY,
+    cuil bigint NOT NULL,
+    location varchar(255) NOT NULL,
+    total float NOT NULL,
+    id_order int NOT NULL,
+    FOREIGN KEY (id_order) REFERENCES orders(id)
 );
 
 INSERT INTO cities (name, cod_postal) VALUES 
