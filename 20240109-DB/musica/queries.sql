@@ -19,7 +19,7 @@ WHERE d.id NOT IN (
 );
 
 -- 3. Listar el número de canciones por artista en orden descendente
-SELECT a.nombre AS artista, COUNT(c.id) AS cant_canciones
+SELECT a.nombre AS artista, COUNT(*) AS cant_canciones
 FROM canciones c
 JOIN album al ON c.album_id = al.id
 JOIN artista a ON al.artista_id = a.id
@@ -27,7 +27,7 @@ GROUP BY a.nombre
 ORDER BY a.nombre DESC;
 
 -- 4. Qué artista grabó el mayor numero de canciones?
-SELECT TOP 1 a.nombre as artista , COUNT(c.id) as cant_canciones
+SELECT TOP 1 a.nombre as artista, COUNT(*) as cant_canciones
 FROM canciones c
 JOIN album al ON c.album_id = al.id
 JOIN artista a ON al.artista_id = a.id
@@ -35,7 +35,7 @@ GROUP BY a.nombre
 ORDER BY cant_canciones DESC;
 
 -- 5. Por cada artista y cada album, cuántas canciones tienen menos de 5 minutos de duración?
-SELECT a.nombre AS artista, al.nombre AS album, COUNT(c.id) AS cant_canciones
+SELECT a.nombre AS artista, al.nombre AS album, COUNT(*) AS cant_canciones
 FROM canciones c
 JOIN album al ON c.album_id = al.id
 JOIN artista a ON al.artista_id = a.id
@@ -51,7 +51,7 @@ WHERE c.duracion < 5
 ORDER BY a.nombre ASC;
 
 -- 7. Qué artistas grabaron canciones más largas que 5 minutos, y cuántas canciones fueron?
-SELECT a.nombre AS artista, COUNT(c.id) AS cant_canciones
+SELECT a.nombre AS artista, COUNT(*) AS cant_canciones
 FROM canciones c
 JOIN album al ON c.album_id = al.id
 JOIN artista a ON al.artista_id = a.id
@@ -73,12 +73,12 @@ JOIN artista a ON al.artista_id = a.id
 ORDER BY c.duracion DESC;
 
 -- 10. Duración total de todas las canciones grabadas por cada artista en orden descendente
-SELECT a.nombre AS artista, ROUND(SUM(c.duracion), 2) AS duracion_total
+SELECT a.nombre AS artista, ROUND(SUM(c.duracion), 2) AS duracion
 FROM canciones c
 JOIN album al ON c.album_id = al.id
 JOIN artista a ON al.artista_id = a.id
 GROUP BY a.nombre
-ORDER BY duracion_total DESC;
+ORDER BY duracion DESC;
 
 -- 11. Qué artistas y album no tienen canciones de menos de 5 minutos?
 SELECT a.nombre AS artista, al.nombre AS album
