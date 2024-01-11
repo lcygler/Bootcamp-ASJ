@@ -1,3 +1,4 @@
+package _20240110;
 
 public class MiClase {
 
@@ -15,7 +16,7 @@ public class MiClase {
 		// Inicialización de variables
 		edad = 28;
 		precio = 9.99f;
-		total = 99.99; 
+		total = 99.99;
 		estado = true;
 		letra = 'L';
 		nombre = "Leandro";
