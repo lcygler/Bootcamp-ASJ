@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class PromedioNotas {
 
-	/*
+	/**
 	 * Pedir al usuario que ingrese ¿cuántas notas quiere ingresar?
 	 * Según eso, pedir el valor de cada nota (1 al 10) y sacar el promedio.
 	 * Aclaración: Hacerlo con FOR, WHILE y DO-WHILE.

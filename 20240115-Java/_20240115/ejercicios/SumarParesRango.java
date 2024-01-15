@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class SumarParesRango {
 
-	/*
+	/**
 	 * Realizar la suma de todos los números pares entre N y M
 	 * donde N y M los ingresa un usuario.
 	 */

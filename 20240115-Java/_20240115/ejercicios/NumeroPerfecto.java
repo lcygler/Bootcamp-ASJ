@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class NumeroPerfecto {
 
-	/*
+	/**
 	 * Crear un programa que determine si un número es perfecto o no, (se dice que
 	 * un número es perfecto si el número es igual a la suma de sus divisores
 	 * positivos, excluido él mismo., Ejemplos 6 = 1 + 2 + 3)

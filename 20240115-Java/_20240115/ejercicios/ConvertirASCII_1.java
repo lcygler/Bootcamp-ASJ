@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class ConvertirASCII_1 {
 
-	/*
+	/**
 	 * Dada una palabra ingresada por el usuario (por teclado),
 	 * mostrar su equivalente en ASCII (letra por letra).
 	 * Ejemplo: Hola => 72 111 108 97
