@@ -1,9 +1,9 @@
-package _20240111.ej5.v2;
+package _20240111.ej5;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Main {
+public class Main_v2 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		ArrayList<String> seriesList = new ArrayList<>();
