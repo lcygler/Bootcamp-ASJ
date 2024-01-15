@@ -1,8 +1,8 @@
-package _20240111.ej4;
+package _20240111;
 
 import java.util.Scanner;
 
-public class Main {
+public class Loops1 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 		int num;

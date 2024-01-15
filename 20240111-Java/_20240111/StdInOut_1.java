@@ -1,8 +1,8 @@
-package _20240111.ej1;
+package _20240111;
 
 import java.util.Scanner;
 
-public class Main {
+public class StdInOut_1 {
 	public static void main(String[] args) {
 		Scanner scanner = new Scanner(System.in);
 
