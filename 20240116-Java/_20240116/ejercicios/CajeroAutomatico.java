@@ -12,7 +12,7 @@ public class CajeroAutomatico {
 	 * es menor o igual al saldo actual, restar el dinero extraído al saldo
 	 * - DEPOSITAR: debe pedir al usuario la cantidad a ingresar y sumarla al saldo actual
 	 * - CONSULTAR SALDO: debe mostrar el saldo actual
-	 * - VER ÚLTIMOS MOVIMIENTOS: debe mostrar una lista de los últimos moviemientos realizados
+	 * - VER ÚLTIMOS MOVIMIENTOS: debe mostrar una lista de los últimos movimientos realizados
 	 * - SALIR: debe terminar la ejecución del programa.
 	 * 
 	 * El programa debe mostrar el menú de opciones, y permitir ingresar una opción.
