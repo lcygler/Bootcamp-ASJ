@@ -46,6 +46,7 @@ public class PhoneWords {
 		// Actualizar indice
 		switch (numero) {
 		case '2':
+			indice = 0;
 			break;
 		case '3':
 			indice = 3;
