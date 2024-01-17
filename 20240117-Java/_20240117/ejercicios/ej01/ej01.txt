@@ -1,0 +1,2 @@
+1) Cree una clase que me permita realizar una operación matemática de 2 números.
+Crear los metodos y atributos necesarios.
