@@ -27,19 +27,24 @@ public class Main {
 		coleccion.agregarFigura(figuraHeman);
 		coleccion.imprimirColeccion();
 		
+		// Subir precio a una figura
 		System.out.println("\nSubiendo precio de He-Man...");
 		figuraHeman.subirPrecio(3000);
 		coleccion.imprimirColeccion();
 
+		// Imprimir superhéroes con capa
 		System.out.println("\nLos superhéroes con capa son:");
 		System.out.println(coleccion.conCapa());
 
+		// Imprimir figura más valiosa
 		System.out.println("\nLa figura más valiosa de la colección es:");
 		System.out.println(coleccion.masValioso());
 
+		// Imprimir volumen total de la colección
 		System.out.print("\nEl volumen total de la colección es: ");
 		System.out.println(coleccion.getVolumenColeccion() + " cm³");
 
+		// Imprimir valor total de la colección
 		System.out.print("\nEl valor total de la colección es: ");
 		System.out.println("$" + coleccion.getValorColeccion());
 
