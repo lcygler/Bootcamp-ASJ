@@ -75,11 +75,11 @@ public class Coleccion {
 
 	public Figura masValioso() {
 		Figura figuraMasValiosa = null;
-		double max = 0;
+		double mayorPrecio = 0;
 
 		for (Figura figura : figuras) {
-			if (figura.getPrecio() > max) {
-				max = figura.getPrecio();
+			if (figura.getPrecio() > mayorPrecio) {
+				mayorPrecio = figura.getPrecio();
 				figuraMasValiosa = figura;
 			}
 		}
