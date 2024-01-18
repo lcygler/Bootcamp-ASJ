@@ -5,8 +5,8 @@ public class Alumno {
 	private int id;
 	private String nombre;
 	private String apellido;
-	private double nota;
-	
+	private Double nota;
+
 	public Alumno(int id, String nombre, String apellido, double nota) {
 		this.id = id;
 		this.nombre = nombre;
@@ -38,12 +38,12 @@ public class Alumno {
 		this.apellido = apellido;
 	}
 
-	public double getNota() {
+	public Double getNota() {
 		return nota;
 	}
 
 	public void setNota(double nota) {
 		this.nota = nota;
 	}
-	
+
 }
