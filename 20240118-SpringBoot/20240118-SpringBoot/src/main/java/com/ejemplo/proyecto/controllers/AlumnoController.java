@@ -19,11 +19,15 @@ public class AlumnoController {
 
 	// Listado de alumnos hardcodeado
 	List<Alumno> alumnos = new ArrayList<>(
-			List.of(new Alumno(1, "Bob", "Patiño", 9.5), new Alumno(2, "Moe", "Szyslak", 4),
-					new Alumno(3, "Troy", "McClure", 2.6), new Alumno(4, "Edna", "Krabappel", 8.7)));
+			List.of(new Alumno(1, "Bob", "Patiño", 9.5),
+					new Alumno(2, "Moe", "Szyslak", 4),
+					new Alumno(3, "Troy", "McClure", 2.6),
+					new Alumno(4, "Edna", "Krabappel", 8.7)
+			)
+	);
 
 	@GetMapping("/alumnos") // [GET] localhost:8080/alumnos
-	public List<Alumno> getAlumnos() {
+	public List<Alumno> getAllAlumnos() {
 		return alumnos;
 	}
 
@@ -39,7 +43,7 @@ public class AlumnoController {
 	}
 
 	@DeleteMapping("/alumnos/{id}") // [DELETE] localhost:8080/alumnos/1
-	public Alumno deleteAlumnoById(@PathVariable int id) {
+	public Alumno deleteAlumno(@PathVariable int id) {
 		for (Alumno alumno : alumnos) {
 			if (alumno.getId() == id) {
 				alumnos.remove(alumno);
@@ -53,15 +57,13 @@ public class AlumnoController {
 	@PostMapping("/alumnos") // [POST] localhost:8080/alumnos
 	public Alumno createAlumno(@RequestBody Alumno alumno) {
 		int id = alumnos.size() + 1;
-
 		alumno.setId(id);
 		alumnos.add(alumno);
-
 		return alumno;
 	}
 
 	@PutMapping("/alumnos/{id}") // [PUT] localhost:8080/alumnos/1
-	public Alumno updateAlumnoById(@PathVariable int id, @RequestBody Alumno alumno) {
+	public Alumno updateAlumno(@PathVariable int id, @RequestBody Alumno alumno) {
 		for (int i = 0; i < alumnos.size(); i++) {
 			if (alumnos.get(i).getId() == id) {
 				alumno.setId(id);
@@ -74,7 +76,7 @@ public class AlumnoController {
 	}
 
 	@PatchMapping("/alumnos/{id}") // [PATCH] localhost:8080/alumnos/1
-	public Alumno patchAlumnoById(@PathVariable int id, @RequestBody Alumno datosAlumno) {
+	public Alumno patchAlumno(@PathVariable int id, @RequestBody Alumno datosAlumno) {
 		for (Alumno alumno : alumnos) {
 			if (alumno.getId() == id) {
 				if (datosAlumno.getNombre() != null) {
