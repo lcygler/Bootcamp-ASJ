@@ -10,11 +10,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.ejemplo.proyecto.models.Alumno;
 
 @RestController
+@RequestMapping("/alumnos")
 public class AlumnoController_2 {
 
     List<Alumno> alumnos = new ArrayList<>(List.of(
@@ -24,17 +26,17 @@ public class AlumnoController_2 {
             new Alumno(4, "Edna", "Krabappel", 8.7)
     ));
 
-    @GetMapping("/alumnos") // [GET] localhost:8080/alumnos
+    @GetMapping // [GET] localhost:8080/alumnos
     public List<Alumno> getAllAlumnos() {
         return alumnos;
     }
 
-    @GetMapping("/alumnos/{id}") // [GET] localhost:8080/alumnos/1
+    @GetMapping("/{id}") // [GET] localhost:8080/alumnos/1
     public Alumno getAlumnoById(@PathVariable int id) {
         return buscarAlumnoPorId(id);
     }
 
-    @PostMapping("/alumnos") // [POST] localhost:8080/alumnos
+    @PostMapping // [POST] localhost:8080/alumnos
     public Alumno createAlumno(@RequestBody Alumno alumno) {
         int id = alumnos.size() + 1;
         alumno.setId(id);
@@ -42,7 +44,7 @@ public class AlumnoController_2 {
         return alumno;
     }
 
-    @PutMapping("/alumnos/{id}") // [PUT] localhost:8080/alumnos/1
+    @PutMapping("/{id}") // [PUT] localhost:8080/alumnos/1
     public Alumno updateAlumno(@PathVariable int id, @RequestBody Alumno alumno) {
         Alumno alumnoEncontrado = buscarAlumnoPorId(id);
         int indice = alumnos.indexOf(alumnoEncontrado);
@@ -56,7 +58,7 @@ public class AlumnoController_2 {
         return null;
     }
 
-    @PatchMapping("/alumnos/{id}") // [PATCH] localhost:8080/alumnos/1
+    @PatchMapping("/{id}") // [PATCH] localhost:8080/alumnos/1
     public Alumno patchAlumno(@PathVariable int id, @RequestBody Alumno alumno) {
         Alumno alumnoEncontrado = buscarAlumnoPorId(id);
         
@@ -77,7 +79,7 @@ public class AlumnoController_2 {
         return alumnoEncontrado;
     }
     
-    @DeleteMapping("/alumnos/{id}") // [DELETE] localhost:8080/alumnos/1
+    @DeleteMapping("/{id}") // [DELETE] localhost:8080/alumnos/1
     public Alumno deleteAlumno(@PathVariable int id) {
         Alumno alumnoEncontrado = buscarAlumnoPorId(id);
         
