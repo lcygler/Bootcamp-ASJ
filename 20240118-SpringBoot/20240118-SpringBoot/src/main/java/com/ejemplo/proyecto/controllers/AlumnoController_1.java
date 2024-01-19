@@ -14,17 +14,15 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.ejemplo.proyecto.models.Alumno;
 
-@RestController
-public class AlumnoController {
+// @RestController
+public class AlumnoController_1 {
 
-	// Listado de alumnos hardcodeado
-	List<Alumno> alumnos = new ArrayList<>(
-			List.of(new Alumno(1, "Bob", "Patiño", 9.5),
-					new Alumno(2, "Moe", "Szyslak", 4),
-					new Alumno(3, "Troy", "McClure", 2.6),
-					new Alumno(4, "Edna", "Krabappel", 8.7)
-			)
-	);
+    List<Alumno> alumnos = new ArrayList<>(List.of(
+            new Alumno(1, "Bob", "Patiño", 9.5),
+            new Alumno(2, "Moe", "Szyslak", 4),
+            new Alumno(3, "Troy", "McClure", 2.6),
+            new Alumno(4, "Edna", "Krabappel", 8.7)
+    ));
 
 	@GetMapping("/alumnos") // [GET] localhost:8080/alumnos
 	public List<Alumno> getAllAlumnos() {
@@ -35,18 +33,6 @@ public class AlumnoController {
 	public Alumno getAlumnoById(@PathVariable int id) {
 		for (Alumno alumno : alumnos) {
 			if (alumno.getId() == id) {
-				return alumno;
-			}
-		}
-
-		return null;
-	}
-
-	@DeleteMapping("/alumnos/{id}") // [DELETE] localhost:8080/alumnos/1
-	public Alumno deleteAlumno(@PathVariable int id) {
-		for (Alumno alumno : alumnos) {
-			if (alumno.getId() == id) {
-				alumnos.remove(alumno);
 				return alumno;
 			}
 		}
@@ -76,19 +62,19 @@ public class AlumnoController {
 	}
 
 	@PatchMapping("/alumnos/{id}") // [PATCH] localhost:8080/alumnos/1
-	public Alumno patchAlumno(@PathVariable int id, @RequestBody Alumno datosAlumno) {
+	public Alumno patchAlumno(@PathVariable int id, @RequestBody Alumno datos) {
 		for (Alumno alumno : alumnos) {
 			if (alumno.getId() == id) {
-				if (datosAlumno.getNombre() != null) {
-					alumno.setNombre(datosAlumno.getNombre());
+				if (datos.getNombre() != null) {
+					alumno.setNombre(datos.getNombre());
 				}
 
-				if (datosAlumno.getApellido() != null) {
-					alumno.setApellido(datosAlumno.getApellido());
+				if (datos.getApellido() != null) {
+					alumno.setApellido(datos.getApellido());
 				}
 
-				if (datosAlumno.getNota() != null) {
-					alumno.setNota(datosAlumno.getNota());
+				if (datos.getNota() != null) {
+					alumno.setNota(datos.getNota());
 				}
 
 				return alumno;
@@ -97,5 +83,16 @@ public class AlumnoController {
 
 		return null;
 	}
+	
+	@DeleteMapping("/alumnos/{id}") // [DELETE] localhost:8080/alumnos/1
+	public Alumno deleteAlumno(@PathVariable int id) {
+		for (Alumno alumno : alumnos) {
+			if (alumno.getId() == id) {
+				alumnos.remove(alumno);
+				return alumno;
+			}
+		}
 
+		return null;
+	}
 }
