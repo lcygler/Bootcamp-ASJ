@@ -50,9 +50,10 @@ public class AlumnoController_2 {
         if (alumnoEncontrado != null) {
         	alumno.setId(id);
             alumnos.set(indice, alumno);
+            return alumno;
         }
         
-        return alumno;
+        return null;
     }
 
     @PatchMapping("/alumnos/{id}") // [PATCH] localhost:8080/alumnos/1
