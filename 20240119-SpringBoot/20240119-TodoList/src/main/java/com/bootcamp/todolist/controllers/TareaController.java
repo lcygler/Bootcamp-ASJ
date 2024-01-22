@@ -53,7 +53,7 @@ public class TareaController {
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<?> getTareaById(@PathVariable Integer id) {
+	public ResponseEntity<TareaModel> getTareaById(@PathVariable Integer id) {
 		TareaModel tarea = tareaService.getTareaById(id);
 
 		if (tarea != null) {
