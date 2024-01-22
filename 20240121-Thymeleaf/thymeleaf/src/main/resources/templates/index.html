@@ -33,7 +33,9 @@
                 Editar
             </a>
             <!-- Path Param: /alumnos/delete/{id} -->
-            <a class="btn btn-outline-danger" th:href="@{/alumnos/delete/{id}(id=${alumno.id})}">
+            <a class="btn btn-outline-danger"
+               th:href="@{/alumnos/delete/{id}(id=${alumno.id})}"
+               onclick="return confirm('¿Eliminar este alumno?');">
                 Eliminar
             </a>
         </td>
