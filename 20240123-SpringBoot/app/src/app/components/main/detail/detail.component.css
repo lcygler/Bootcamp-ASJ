@@ -1,0 +1,7 @@
+.filled {
+  color: gold;
+}
+
+.cursor-pointer:hover {
+  cursor: pointer;
+}

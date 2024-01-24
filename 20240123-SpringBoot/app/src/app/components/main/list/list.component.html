@@ -1,0 +1,136 @@
+<div class="container mt-4">
+  <div class="mt-4 invisible">empty_space</div>
+
+  <div class="d-flex justify-content-between align-items-center">
+    <h2 class="my-3">Listado de Videos</h2>
+
+    <div class="d-flex">
+      <!-- Search -->
+      <input
+        class="form-control me-2"
+        type="text"
+        placeholder="Buscar"
+        aria-label="Buscar"
+        [(ngModel)]="searchTerm"
+        style="min-width: 250px"
+      />
+
+      <!-- Filter -->
+      <div class="dropdown me-2">
+        <button
+          class="btn btn-outline-secondary dropdown-toggle"
+          type="button"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          {{ categoryFilter }}
+        </button>
+        <div class="dropdown-menu">
+          <a
+            *ngFor="let category of categories"
+            class="dropdown-item"
+            (click)="updateFilter(category)"
+          >
+            {{ category }}
+          </a>
+        </div>
+      </div>
+
+      <!-- Add -->
+      <button
+        class="btn btn-success rounded d-flex align-items-center"
+        (click)="addVideo()"
+      >
+        <span class="material-icons me-2">add</span>
+        Agregar
+      </button>
+    </div>
+  </div>
+
+  <div class="my-4">
+    <div class="row">
+      <div
+        *ngFor="
+          let video of videos | filter : categoryFilter | search : searchTerm
+        "
+        class="col-md-4"
+      >
+        <!-- Card -->
+        <div class="card mb-4 my-card" style="max-width: 540px">
+          <div class="row g-0" routerLink="/videos/{{ video.id }}">
+            <div class="col-md-4">
+              <img
+                [src]="getThumbnail(video.urlVideo)"
+                class="img-fluid rounded-start"
+                alt="..."
+                style="object-fit: cover; width: 100%; height: 100%"
+              />
+            </div>
+            <div class="col-md-8">
+              <div class="card-body" style="height: 125px">
+                <h5
+                  class="card-title"
+                  style="
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                    padding-right: 80px;
+                  "
+                >
+                  {{ video.titulo }}
+                </h5>
+                <p
+                  class="card-text"
+                  style="
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                    white-space: nowrap;
+                  "
+                >
+                  {{ video.descripcion }}
+                </p>
+                <p class="card-text">
+                  <small class="text-body-secondary">
+                    {{ video.categoria }}
+                  </small>
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Actions -->
+          <div
+            class="btn-group my-2 btn-actions bg-white"
+            style="position: absolute; top: 0; right: 7px"
+          >
+            <button
+              class="btn btn-outline-secondary btn-sm"
+              (click)="editVideo(video.id!)"
+            >
+              <span class="material-icons" style="font-size: 16px">edit</span>
+            </button>
+            <button
+              class="btn btn-outline-danger btn-sm"
+              (click)="deleteVideo(video.id!)"
+            >
+              <span class="material-icons" style="font-size: 16px">
+                delete
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Floating button -->
+  <!-- <button
+    class="btn btn-success rounded d-flex align-items-center"
+    style="position: fixed; top: 16px; right: 16px; height: 40px"
+    (click)="addVideo()"
+  >
+    <span class="material-icons me-2">add</span>
+    Agregar
+  </button> -->
+</div>

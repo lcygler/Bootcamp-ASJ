@@ -1,0 +1,84 @@
+<div class="container w-75">
+  <!-- Breadcrumbs -->
+  <div class="row mt-4">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/videos">Videos</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          {{ video.titulo }}
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <!-- Video -->
+  <div class="my-3">
+    <iframe
+      class="shadow"
+      width="100%"
+      height="500px"
+      [src]="getSafeUrl(video.urlVideo)"
+      frameborder="0"
+      allow="autoplay; encrypted-media"
+      allowfullscreen
+    ></iframe>
+  </div>
+
+  <!-- Titulo -->
+  <h2>{{ video.titulo }}</h2>
+
+  <div class="d-flex w-100 justify-content-between">
+    <!-- Visualizaciones -->
+    <p>{{ video.cantVistas | number : "1.0" }} visualizaciones</p>
+
+    <div class="d-flex">
+      <!-- Estrellas -->
+      <p class="me-2">Califica el video:</p>
+      <div (click)="setRate(star)" *ngFor="let star of starRate">
+        <span
+          class="star"
+          [ngClass]="
+            currentHoverStar >= star || chosenRate >= star
+              ? 'material-icons cursor-pointer filled'
+              : 'material-icons cursor-pointer'
+          "
+          (mouseover)="onMouseOver(star)"
+          (mouseout)="onMouseOut(star)"
+        >
+          star
+        </span>
+      </div>
+
+      <!-- Puntaje -->
+      <p *ngIf="avgScore > 0" class="ms-2">
+        ({{ avgScore | number : "1.1-1" }})
+      </p>
+    </div>
+  </div>
+
+  <!-- Categoría -->
+  <div class="bg-light rounded p-4">
+    <p><strong>Categoría:</strong> {{ video.categoria }}</p>
+    <p>{{ video.descripcion }}</p>
+  </div>
+
+  <!-- Navegación -->
+  <div class="d-flex justify-content-center my-4">
+    <button
+      class="btn btn-outline-secondary rounded-circle me-2"
+      (click)="prevVideo()"
+      style="height: 50px; width: 50px"
+      [disabled]="this.videoIndex! - 1 < 0"
+    >
+      <span class="material-icons">arrow_back</span>
+    </button>
+    <button
+      class="btn btn-outline-secondary rounded-circle"
+      (click)="nextVideo()"
+      style="height: 50px; width: 50px"
+      [disabled]="this.videoIndex! + 1 >= this.videos.length"
+    >
+      <span class="material-icons">arrow_forward</span>
+    </button>
+  </div>
+</div>

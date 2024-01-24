@@ -1,0 +1,155 @@
+<div class="container" style="width: 50%">
+  <!-- Breadcrumbs -->
+  <div class="row mt-4">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item"><a routerLink="/videos">Videos</a></li>
+        <li class="breadcrumb-item active" aria-current="page">
+          {{ isEditView ? "Editar" : "Agregar" }}
+        </li>
+      </ol>
+    </nav>
+  </div>
+
+  <h2 class="my-3">{{ isEditView ? "Editar Video" : "Agregar Video" }}</h2>
+
+  <form #VideoForm="ngForm" (ngSubmit)="onSubmit(VideoForm)">
+    <div class="row">
+      <div class="col-md-6">
+        <!-- Título -->
+        <div class="form-group my-2">
+          <label for="titulo">
+            Título <span class="text-danger">*</span>
+          </label>
+          <input
+            type="text"
+            id="titulo"
+            name="titulo"
+            class="form-control"
+            [(ngModel)]="video.titulo"
+            maxlength="255"
+            required
+          />
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <!-- Categoría -->
+        <div class="form-group my-2">
+          <label for="categoria">
+            Categoría <span class="text-danger">*</span>
+          </label>
+          <select
+            class="form-select"
+            name="categoria"
+            id="categoria"
+            [(ngModel)]="video.categoria"
+            required
+          >
+            <option *ngFor="let category of categories" value="{{ category }}">
+              {{ category }}
+            </option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Descripción -->
+    <div class="form-group my-2">
+      <label for="descripcion">
+        Descripción <span class="text-danger">*</span>
+      </label>
+      <textarea
+        id="descripcion"
+        name="descripcion"
+        class="form-control"
+        [(ngModel)]="video.descripcion"
+        required
+      ></textarea>
+    </div>
+
+    <!-- URL -->
+    <div class="form-group my-2">
+      <label for="urlVideo"> URL <span class="text-danger">*</span> </label>
+      <input
+        type="text"
+        id="urlVideo"
+        name="urlVideo"
+        class="form-control"
+        [(ngModel)]="video.urlVideo"
+        required
+        maxlength="255"
+      />
+    </div>
+
+    <div class="row d-none">
+      <div class="col-md-4">
+        <!-- Vistas -->
+        <div class="form-group my-2">
+          <label for="cantVistas">
+            Vistas <span class="text-danger">*</span>
+          </label>
+          <input
+            type="number"
+            id="cantVistas"
+            name="cantVistas"
+            class="form-control"
+            [(ngModel)]="video.cantVistas"
+            required
+            disabled
+          />
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <!-- Me gusta -->
+        <div class="form-group my-2">
+          <label for="cantMegusta">
+            Me gusta <span class="text-danger">*</span>
+          </label>
+          <input
+            type="number"
+            id="cantMegusta"
+            name="cantMegusta"
+            class="form-control"
+            [(ngModel)]="video.cantMegusta"
+            required
+            disabled
+          />
+        </div>
+      </div>
+
+      <div class="col-md-4">
+        <!-- Estrellas -->
+        <div class="form-group my-2">
+          <label for="totalEstrellas">
+            Total de Estrellas <span class="text-danger">*</span>
+          </label>
+          <input
+            type="number"
+            id="totalEstrellas"
+            name="totalEstrellas"
+            class="form-control"
+            [(ngModel)]="video.totalEstrellas"
+            required
+            disabled
+          />
+        </div>
+      </div>
+    </div>
+
+    <!-- Acciones -->
+    <div class="d-flex justify-content-center my-3">
+      <button class="btn btn-outline-secondary me-2" routerLink="/videos">
+        Cancelar
+      </button>
+      <button
+        type="submit"
+        class="btn btn-success"
+        [disabled]="VideoForm.invalid"
+      >
+        Guardar
+      </button>
+    </div>
+  </form>
+</div>
