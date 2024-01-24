@@ -1,0 +1,23 @@
+meta {
+  name: Create Video
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/videos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "urlVideo": "https://www.youtube.com/watch?v=yRTZnTQ-fog",
+    "categoria": "Otros",
+    "titulo": "Test",
+    "descripcion": "Test",
+    "cantVistas": 1000,
+    "cantMegusta": 100,
+    "totalEstrellas": 500 
+  }
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Update Video
+  type: http
+  seq: 5
+}
+
+put {
+  url: http://localhost:8080/videos/1
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "urlVideo": "test",
+  	"categoria": "",
+  	"titulo": "",
+  	"descripcion": "",
+  	"cantVistas": 0,
+  	"cantMegusta": 0,
+  	"totalEstrellas": 0
+  }
+}

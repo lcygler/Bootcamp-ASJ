@@ -1,0 +1,23 @@
+meta {
+  name: Create Video 2
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/videos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "urlVideo": "https://www.youtube.com/embed/T_FkEw27XJ0",
+  	"categoria": "Música",
+  	"titulo": "Soda Stereo - De Música Ligera (Official Video)",
+  	"descripcion": "Soda Stereo - De Música Ligera (Canción Animal)",
+  	"cantVistas": 162042973,
+  	"cantMegusta": 1200000,
+  	"totalEstrellas": 6000000
+  }
+}

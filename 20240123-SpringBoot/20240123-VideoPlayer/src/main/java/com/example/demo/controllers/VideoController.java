@@ -22,7 +22,7 @@ import com.example.demo.services.VideoService;
 
 @RestController
 @RequestMapping("/videos")
-@CrossOrigin
+@CrossOrigin(origins = "http://localhost:4200")
 public class VideoController {
 
 	@Autowired

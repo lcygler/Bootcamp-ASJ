@@ -1,0 +1,23 @@
+meta {
+  name: Create Video 3
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/videos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "urlVideo": "https://www.youtube.com/embed/Fob5i7Isqy4",
+  	"categoria": "Graciosos",
+  	"titulo": "SI TE RÍES PIERDES NIVEL DIOS",
+  	"descripcion": "Si es la primera vez que ves uno de mis vídeos, te invito a que veas mi demás contenido que tal vez te puede gustar.",
+  	"cantVistas": 15989843,
+  	"cantMegusta": 84000,
+  	"totalEstrellas": 403200
+  }
+}

@@ -1,0 +1,18 @@
+meta {
+  name: Patch Video
+  type: http
+  seq: 6
+}
+
+patch {
+  url: http://localhost:8080/videos/7
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "titulo": "Exitos Rock Nacional Argentino",
+      "descripcion": "Las Mejores Canciones del Rock Argentino - Rock Nacional Exito #5."
+  }
+}

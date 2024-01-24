@@ -1,0 +1,23 @@
+meta {
+  name: Create Video 5
+  type: http
+  seq: 5
+}
+
+post {
+  url: http://localhost:8080/videos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "urlVideo": "https://www.youtube.com/embed/twOMe6o1eLU",
+  	"categoria": "Deporte",
+  	"titulo": "Lionel Messi The Most Smart & Creative Plays",
+  	"descripcion": "Lionel Messi The Most Smart & Creative Plays.",
+  	"cantVistas": 9731188,
+  	"cantMegusta": 54000,
+  	"totalEstrellas": 270000
+  }
+}

@@ -1,0 +1,23 @@
+meta {
+  name: Create Video 8
+  type: http
+  seq: 8
+}
+
+post {
+  url: http://localhost:8080/videos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "urlVideo": "https://www.youtube.com/embed/NDUHL5D8SJI",
+  	"categoria": "Manualidades",
+  	"titulo": "20 IDEAS para DECORAR tu HOGAR / Manualidades SUPER FACILES / Dollar Tree DIY",
+  	"descripcion": "20 ideas para decorar tu hogar con manualidades super fáciles y económicas que tu mismo puedes hacer.",
+  	"cantVistas": 984551,
+  	"cantMegusta": 24000,
+  	"totalEstrellas": 91200
+  }
+}

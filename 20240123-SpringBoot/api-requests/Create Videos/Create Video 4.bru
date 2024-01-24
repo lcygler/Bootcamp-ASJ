@@ -1,0 +1,23 @@
+meta {
+  name: Create Video 4
+  type: http
+  seq: 4
+}
+
+post {
+  url: http://localhost:8080/videos
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "urlVideo": "https://www.youtube.com/embed/20-6uZ1WWVs",
+  	"categoria": "Graciosos",
+  	"titulo": "SI TE RÍES PIERDES NIVEL DIOS (412% IMPOSIBLE!!!",
+  	"descripcion": "humor jajaja risas divertido hombres meme memes risa chister gracioso.",
+  	"cantVistas": 3211489,
+  	"cantMegusta": 19000,
+  	"totalEstrellas": 81700
+  }
+}
