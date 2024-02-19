@@ -1,0 +1,39 @@
+{
+  "id": 12345,
+  "codigo": "PROV-001",
+  "nombre": "Juan",
+  "apellido": "Pérez",
+  "rubro": "Alimentos",
+  "logo": "http://blabla.com",
+  "ubicacion": {
+    "direccion": "Av. Siempreviva 123",
+    "cp": 5000,
+    "provincia": "Buenos Aires",
+    "pais": "Argentina"
+  },
+  "datos_fiscales": {
+    "cuit": 20234323421,
+    "condicion": "Monotributista",
+    "fecha": "01-04-2020"
+  },
+  "datos_contacto": [
+    {
+      "nombre": "Laura",
+      "apellido": "Robledo",
+      "email": "laura@robledo.com",
+      "rol": "CEO"
+    },
+    {
+      "nombre": "Germán",
+      "apellido": "Gómez",
+      "edad": 54,
+      "rol": "Gerente Gral.",
+      "web": "http://germangomez.com.ar"
+    }
+  ],
+  "productos": [
+    {
+      "id": 1112
+    }
+  ]
+}

@@ -1,0 +1,50 @@
+[
+  {
+    "_id": {
+      "$oid": "65d3657081afa15447d698f8"
+    },
+    "nombre": "Juan",
+    "apellido": "Pérez",
+    "edad": 30
+  },
+  {
+    "_id": {
+      "$oid": "65d365e881afa15447d698fb"
+    },
+    "nombre": "Roberto",
+    "apellido": "Carlos",
+    "edad": 50
+  },
+  {
+    "_id": {
+      "$oid": "65d3661181afa15447d698fd"
+    },
+    "nombre": "Rodrigo",
+    "apellido": "Montecarlo",
+    "edad": 37
+  },
+  {
+    "_id": {
+      "$oid": "65d3663081afa15447d698ff"
+    },
+    "nombre": "Sandra",
+    "apellido": "Bullock",
+    "edad": 55
+  },
+  {
+    "_id": {
+      "$oid": "65d3668a81afa15447d69901"
+    },
+    "nombre": "Lisa",
+    "apellido": "Simpson",
+    "edad": 8
+  },
+  {
+    "_id": {
+      "$oid": "65d3668a81afa15447d69902"
+    },
+    "nombre": "Leo",
+    "apellido": "Messi",
+    "edad": 36
+  }
+]

@@ -1,0 +1,10 @@
+{
+  "id": 1112,
+  "sku": "TV.1112.HF",
+  "nombre": "TV 55 pulgadas",
+  "categoria": "Electrodomésticos",
+  "precio": 500000,
+  "imagen": ["http://imagen1.com", "http://imagen2.com", "http://imagen3.com"],
+  "descripcion": "TV 55 pulgadas",
+  "created_at": "19-02-2024"
+}

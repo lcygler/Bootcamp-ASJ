@@ -1,0 +1,62 @@
+[
+  {
+    "description": "Hacer compras",
+    "date": "2024-01-15T00:00:00",
+    "done": false,
+    "deleted": false
+  },
+  {
+    "description": "Pagar servicios",
+    "date": "2024-01-18T00:00:00",
+    "done": false,
+    "deleted": false
+  },
+  {
+    "description": "Terminar el proyecto",
+    "date": "2024-01-20T00:00:00",
+    "done": false,
+    "deleted": false
+  },
+  {
+    "description": "Terminar el reporte",
+    "date": "2024-01-25T00:00:00",
+    "done": false,
+    "deleted": false
+  },
+  {
+    "description": "Ir a correr",
+    "date": "2024-01-28T00:00:00",
+    "done": false,
+    "deleted": false
+  },
+  {
+    "description": "Leer un libro",
+    "date": "2024-01-30T00:00:00",
+    "done": false,
+    "deleted": false
+  },
+  {
+    "description": "Limpiar la casa",
+    "date": "2024-02-03T00:00:00",
+    "done": false,
+    "deleted": false
+  },
+  {
+    "description": "Ir a la reunión",
+    "date": "2024-02-01T00:00:00",
+    "done": false,
+    "deleted": false
+  },
+  {
+    "description": "Escribir código",
+    "date": "2024-02-09T00:00:00",
+    "done": false,
+    "deleted": false
+  },
+  {
+    "description": "Pasear al perro",
+    "date": "2024-02-12T00:00:00",
+    "done": false,
+    "deleted": false
+  }
+]
