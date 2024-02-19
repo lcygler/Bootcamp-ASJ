@@ -1,4 +1,4 @@
-package com.bootcamp.todolist;
+package com.bootcamp.todolist.utils;
 
 import java.util.HashMap;
 import java.util.Map;

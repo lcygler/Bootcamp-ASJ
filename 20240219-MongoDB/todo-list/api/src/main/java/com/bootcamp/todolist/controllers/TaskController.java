@@ -18,7 +18,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bootcamp.todolist.ValidationUtils;
+import com.bootcamp.todolist.utils.ValidationUtils;
 import com.bootcamp.todolist.models.TaskModel;
 import com.bootcamp.todolist.services.TaskService;
 
