@@ -1,0 +1,21 @@
+meta {
+  name: Update Task
+  type: http
+  seq: 7
+}
+
+put {
+  url: http://localhost:8080/tasks/65d3c30ed27e76b352881e04
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "id": "65d3c30ed27e76b352881e04",
+      "description": "Hacer compras",
+      "date": "2024-01-15T00:00:00",
+      "done": true,
+      "deleted": false
+  }
+}

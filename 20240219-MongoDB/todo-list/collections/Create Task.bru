@@ -1,0 +1,20 @@
+meta {
+  name: Create Task
+  type: http
+  seq: 6
+}
+
+post {
+  url: http://localhost:8080/tasks
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "description": "Descripcion",
+      "date": "2024-01-22T00:00:00",
+      "done": false,
+      "deleted": false
+  }
+}

@@ -1,0 +1,19 @@
+meta {
+  name: Delete Task
+  type: http
+  seq: 9
+}
+
+delete {
+  url: http://localhost:8080/tasks/65d3c30ed27e76b352881e04
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "nombre": "Tarea 1",
+      "descripcion": "Descripcion 1",
+      "estado": true
+  }
+}

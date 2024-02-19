@@ -1,0 +1,18 @@
+meta {
+  name: Patch Task
+  type: http
+  seq: 8
+}
+
+patch {
+  url: http://localhost:8080/tasks/65d3c30ed27e76b352881e04
+  body: json
+  auth: none
+}
+
+body:json {
+  {
+      "description": "Nueva descripción",
+      "done": true
+  }
+}
