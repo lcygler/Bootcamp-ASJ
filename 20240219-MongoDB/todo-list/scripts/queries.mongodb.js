@@ -1,30 +1,30 @@
-// Listar tareas
+// List tasks
 use("bootcamp-asj");
 db.tasks.find({});
 
-// Contar tareas
+// Count tasks
 use("bootcamp-asj");
 db.tasks.find({}).count();
 
-// Buscar tareas completadas
+// Find completed tasks
 use("bootcamp-asj");
 db.tasks.find({
   done: true,
 });
 
-// Buscar tareas incompletas
+// Find incomplete tasks
 use("bootcamp-asj");
 db.tasks.find({
   done: false,
 });
 
-// Buscar tareas activas
+// Find active tasks
 use("bootcamp-asj");
 db.tasks.find({
   deleted: false,
 });
 
-// Buscar tareas inactivas
+// Find inactive tasks
 use("bootcamp-asj");
 db.tasks.find({
   deleted: true,

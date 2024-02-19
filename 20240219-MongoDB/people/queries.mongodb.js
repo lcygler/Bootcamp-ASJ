@@ -1,56 +1,56 @@
-// Eliminar datos
+// Delete data
 // use("bootcamp-asj");
-// db.personas.deleteMany({});
-// db.getCollection("personas").deleteMany({});
+// db.people.deleteMany({});
+// db.getCollection("people").deleteMany({});
 
-// Insertar datos
+// Insert data
 // use("bootcamp-asj");
 // const data = [{}, {}, {}];
-// db.personas.insertMany(data);
+// db.people.insertMany(data);
 
-// Listar personas
+// List people
 use("bootcamp-asj");
-db.personas.find({});
+db.people.find({});
 
-// Contar personas
+// Count people
 use("bootcamp-asj");
-db.personas.find({}).count();
+db.people.find({}).count();
 
 // 1.
 use("bootcamp-asj");
-db.personas.find({
+db.people.find({
   nombre: "Andrea",
 });
 
 // 2.
 use("bootcamp-asj");
-db.personas.find({
+db.people.find({
   nombre: { $ne: "Peter" },
 });
 
 // 3.
 use("bootcamp-asj");
-db.personas.find({
+db.people.find({
   edad: { $gt: 18 },
 });
 
 // 4.
 use("bootcamp-asj");
-db.personas.find({
+db.people.find({
   edad: { $gte: 18 },
   talle: "M",
 });
 
 // 5.
 use("bootcamp-asj");
-db.personas.find({
+db.people.find({
   edad: { $lt: 18 },
   genero: "F",
 });
 
 // 6.
 use("bootcamp-asj");
-db.personas.find({
+db.people.find({
   edad: { $lt: 18 },
   genero: "F",
   talle: { $ne: "L" },
@@ -58,14 +58,14 @@ db.personas.find({
 
 // 7.
 use("bootcamp-asj");
-db.personas.find({
+db.people.find({
   nombre: { $regex: /a$/i },
   talle: "S",
 });
 
 // 8.
 use("bootcamp-asj");
-db.personas.find({
+db.people.find({
   apellido: { $regex: /^P/i },
   fec_nac: { $regex: /1992/ },
   idioma: { $ne: "Italian" },
@@ -73,7 +73,7 @@ db.personas.find({
 
 // 9.
 use("bootcamp-asj");
-db.personas.find({
+db.people.find({
   titulo: { $regex: /r/i },
   fec_nac: { $regex: /\/12\// },
 });
