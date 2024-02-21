@@ -1,6 +1,6 @@
 # Blog
 
-**app**
+**app-js**
 
 - CRA + Bootstrap
 
