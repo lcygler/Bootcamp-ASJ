@@ -1,0 +1,50 @@
+@host = http://localhost:8080
+@timestamp = {{$localDatetime "YYYY-MM-DDTHH:mm:ss"}}
+
+### Get All Tasks
+GET {{host}}/tasks
+
+### Get Task By Id
+@taskId = 65d3c30ed27e76b352881e04
+
+GET {{host}}/tasks/{{taskId}}
+
+### Get Tasks By Search Term
+@searchTerm = compras
+
+GET {{host}}/tasks/search/{{searchTerm}}
+
+### Create Task
+POST {{host}}/tasks
+Content-Type: application/json
+
+{
+    "description": "Actualizar la PC",
+    "date": "{{timestamp}}",
+    "done": false,
+    "deleted": false
+}
+
+### Update Task
+PUT {{host}}/tasks/65d3c30ed27e76b352881e04
+Content-Type: application/json
+
+{
+    "id": "65d3c30ed27e76b352881e04",
+    "description": "Hacer compras",
+    "date": "{{timestamp}}",
+    "done": true,
+    "deleted": false
+}
+
+### Patch Task
+PATCH {{host}}/tasks/65d3c30ed27e76b352881e04
+Content-Type: application/json
+
+{
+    "description": "Hacer compras",
+    "done": true
+}
+
+### Delete Task
+DELETE {{host}}/tasks/65d646529ab0b03f1206a8aa

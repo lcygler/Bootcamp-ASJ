@@ -18,9 +18,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.bootcamp.todolist.utils.ValidationUtils;
 import com.bootcamp.todolist.models.TaskModel;
 import com.bootcamp.todolist.services.TaskService;
+import com.bootcamp.todolist.utils.ValidationUtils;
 
 import jakarta.validation.Valid;
 
@@ -32,13 +32,13 @@ public class TaskController {
 	TaskService taskService;
 
 	@GetMapping
-	public ResponseEntity<List<TaskModel>> getAllTareas() {
-		List<TaskModel> tareas = taskService.getAllTasks();
-		return ResponseEntity.ok(tareas);
+	public ResponseEntity<List<TaskModel>> getAllTasks() {
+		List<TaskModel> tasks = taskService.getAllTasks();
+		return ResponseEntity.ok(tasks);
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<TaskModel> getTareaById(@PathVariable String id) {
+	public ResponseEntity<TaskModel> getTaskById(@PathVariable String id) {
 		Optional<TaskModel> optionalTask = taskService.getTaskById(id);
 
 		if (optionalTask.isPresent()) {
@@ -49,9 +49,9 @@ public class TaskController {
 	}
 
 	@GetMapping("/search/{searchTerm}")
-	public ResponseEntity<List<TaskModel>> getTareasBySearchTerm(@PathVariable String searchTerm) {
-		List<TaskModel> tareas = taskService.getTasksBySearchTerm(searchTerm);
-		return ResponseEntity.ok(tareas);
+	public ResponseEntity<List<TaskModel>> getTasksBySearchTerm(@PathVariable String searchTerm) {
+		List<TaskModel> tasks = taskService.getTasksBySearchTerm(searchTerm);
+		return ResponseEntity.ok(tasks);
 	}
 
 	@PostMapping

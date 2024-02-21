@@ -51,25 +51,25 @@ public class TaskService {
 		Optional<TaskModel> optionalTask = getTaskById(id);
 
 		if (optionalTask.isPresent()) {
-			TaskModel existingTarea = optionalTask.get();
+			TaskModel existingTask = optionalTask.get();
 
 			if (task.getDescription() != null) {
-				existingTarea.setDescription(task.getDescription());
+				existingTask.setDescription(task.getDescription());
 			}
 
 			if (task.getDate() != null) {
-				existingTarea.setDate(task.getDate());
+				existingTask.setDate(task.getDate());
 			}
 
 			if (task.getDone() != null) {
-				existingTarea.setDone(task.getDone());
+				existingTask.setDone(task.getDone());
 			}
 
 			if (task.getDeleted() != null) {
-				existingTarea.setDeleted(task.getDeleted());
+				existingTask.setDeleted(task.getDeleted());
 			}
 
-			return Optional.of(taskRepository.save(existingTarea));
+			return Optional.of(taskRepository.save(existingTask));
 		} else {
 			return Optional.empty();
 		}
