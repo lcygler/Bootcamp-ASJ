@@ -1,6 +1,5 @@
 package com.bootcamp.todolist.controllers;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
@@ -9,7 +8,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -36,7 +34,7 @@ public class TaskController {
 	TaskService taskService;
 
 	@GetMapping("/test")
-	public ResponseEntity<String> getTest() {
+	public ResponseEntity<String> test() {
 		int num = 2;
 
 		switch (num) {
@@ -59,13 +57,13 @@ public class TaskController {
 	}
 
 	@GetMapping
-	public ResponseEntity<List<TaskModel>> getAllTareas() {
-		List<TaskModel> tareas = taskService.getAllTasks();
-		return ResponseEntity.ok(tareas);
+	public ResponseEntity<List<TaskModel>> getAllTasks() {
+		List<TaskModel> tasks = taskService.getAllTasks();
+		return ResponseEntity.ok(tasks);
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<TaskModel> getTareaById(@PathVariable Integer id) {
+	public ResponseEntity<TaskModel> getTaskById(@PathVariable Integer id) {
 		Optional<TaskModel> optionalTask = taskService.getTaskById(id);
 
 		if (optionalTask.isPresent()) {
