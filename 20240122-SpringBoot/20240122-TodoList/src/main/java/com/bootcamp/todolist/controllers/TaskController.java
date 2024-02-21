@@ -30,7 +30,7 @@ public class TaskController {
 	TaskService taskService;
 
 	@GetMapping("/test")
-	public ResponseEntity<String> getTest() {
+	public ResponseEntity<String> test() {
 		int num = 2;
 
 		switch (num) {
