@@ -4,7 +4,7 @@ const Hijo = ({ texto, onButtonClick }) => {
   };
 
   return (
-    <div>
+    <div style={{ border: "1px solid white", padding: "10px" }}>
       <p>{texto}</p>
       <button onClick={handleClick}>Actualizar texto en el padre</button>
     </div>

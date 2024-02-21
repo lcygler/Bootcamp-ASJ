@@ -11,7 +11,7 @@ const Padre = (props) => {
   return (
     <div>
       <p>{textoPadre}</p>
-      <p style={{ fontSize: "calc(10px + 2vmin)" }}>{props.texto}</p>
+      <p>{props.texto}</p>
       <Hijo texto="Texto recibido en el hijo" onButtonClick={actualizarTextoPadre} />
     </div>
   );
