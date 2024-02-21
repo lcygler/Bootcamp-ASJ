@@ -53,13 +53,13 @@ public class TaskController {
 	}
 
 	@GetMapping
-	public ResponseEntity<List<TaskModel>> getAllTareas() {
-		List<TaskModel> tareas = taskService.getAllTasks();
-		return ResponseEntity.ok(tareas);
+	public ResponseEntity<List<TaskModel>> getAllTasks() {
+		List<TaskModel> tasks = taskService.getAllTasks();
+		return ResponseEntity.ok(tasks);
 	}
 
 	@GetMapping("/{id}")
-	public ResponseEntity<TaskModel> getTareaById(@PathVariable Integer id) {
+	public ResponseEntity<TaskModel> getTaskById(@PathVariable Integer id) {
 		Optional<TaskModel> optionalTask = taskService.getTaskById(id);
 
 		if (optionalTask.isPresent()) {
