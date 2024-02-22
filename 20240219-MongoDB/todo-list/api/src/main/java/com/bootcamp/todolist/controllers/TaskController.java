@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.bootcamp.todolist.models.TaskModel;
@@ -48,14 +49,14 @@ public class TaskController {
 		}
 	}
 
-	@GetMapping("/search/{searchTerm}")
-	public ResponseEntity<List<TaskModel>> getTasksBySearchTerm(@PathVariable String searchTerm) {
+	@GetMapping("/search")
+	public ResponseEntity<List<TaskModel>> getTasksBySearchTerm(@RequestParam("q") String searchTerm) {
 		List<TaskModel> tasks = taskService.getTasksBySearchTerm(searchTerm);
 		return ResponseEntity.ok(tasks);
 	}
 
 	@PostMapping
-	public ResponseEntity<?> createTask(@Valid @RequestBody TaskModel task, BindingResult bindingResult) {
+	public ResponseEntity<Object> createTask(@Valid @RequestBody TaskModel task, BindingResult bindingResult) {
 		Map<String, String> errors = ValidationUtils.handleBindingResult(bindingResult);
 
 		if (!errors.isEmpty()) {

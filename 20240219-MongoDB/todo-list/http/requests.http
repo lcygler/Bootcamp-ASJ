@@ -12,7 +12,7 @@ GET {{host}}/tasks/{{taskId}}
 ### Get Tasks By Search Term
 @searchTerm = compras
 
-GET {{host}}/tasks/search/{{searchTerm}}
+GET {{host}}/tasks/search?q={{searchTerm}}
 
 ### Create Task
 POST {{host}}/tasks
